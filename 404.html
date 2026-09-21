@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | Swift Smart Learning</title>
+<meta name="description" content="The page you're looking for doesn't exist or may have been moved. Return to the Swift Smart Learning homepage to keep exploring.">
+<link rel="icon" type="image/png" href="assets/logo-icon.png">
+<meta property="og:title" content="Page Not Found | Swift Smart Learning">
+<meta property="og:description" content="The page you're looking for doesn't exist or may have been moved. Return to the Swift Smart Learning homepage to keep exploring.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="404.html">
+<!-- og:image intentionally omitted - no dedicated social-share image asset yet -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@500;600;700&family=Sora:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  body{background:#F7F7F2; margin:0; overflow-x:hidden;}
+  .scale-wrap{ width:1920px; }
+
+  /* ============ TOP BAR (navbar host) ============ */
+  .page-topbar{ position:relative; width:1900px; height:168px; margin:10px auto 0; background:#F7F7F2; }
+  .navbar{ position:fixed; display:flex; flex-direction:row; justify-content:space-between; align-items:center; width:1800px; height:47.76px; left:50%; top:60px; transform:translateX(-50%); z-index:1000; border-radius:16px; background:transparent; box-shadow:none; transition:background-color 0.25s ease, box-shadow 0.25s ease, top 0.25s ease; }
+  .navbar.scrolled{ top:16px; background:#FFFEEA; box-shadow:0 4px 24px rgba(0,0,0,0.12); }
+  .logo{ position:relative; width:197px; height:47.76px; flex-shrink:0; }
+  .logo-icon{ position:absolute; width:76.67px; height:76.67px; left:0px; top:-14.46px; object-fit:contain; display:block; }
+  .logo-text-swift{ position:absolute; left:78.67px; top:-0.08px; font-family:'Poppins',sans-serif; font-weight:600; font-size:20.1823px; line-height:30px; color:#02307C; white-space:nowrap; }
+  .logo-text-learning{ position:absolute; left:78.67px; top:17.84px; font-family:'Poppins',sans-serif; font-weight:600; font-size:20.1823px; line-height:30px; color:#0BC28B; white-space:nowrap; }
+  .nav-right{ display:flex; flex-direction:row; align-items:center; }
+  .navigation{ display:flex; flex-direction:row; align-items:center; gap:24px; }
+  .navigation a{ font-family:'Parkinsans',sans-serif; font-weight:500; font-size:16px; line-height:24px; color:rgba(16,35,63,0.9); padding:6px 0; }
+  .navigation a.active{ font-weight:700; color:#02307C; }
+  .navigation a{ position:relative; }
+  .navigation a::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:2px; background:#02307C; opacity:0; transform:scaleX(0); transform-origin:left; transition:opacity 0.2s ease, transform 0.2s ease; }
+  .navigation a:hover::after{ opacity:1; transform:scaleX(1); }
+  .nav-item-dropdown:hover > a::after, .nav-item-dropdown:focus-within > a::after{ opacity:1; transform:scaleX(1); }
+  .nav-item-dropdown{ position:relative; }
+  .nav-item-dropdown > a{ display:inline-flex; align-items:center; gap:4px; }
+  .nav-item-dropdown:hover > a, .nav-item-dropdown:focus-within > a{ color:#FBA017; }
+  .nav-dropdown-chevron{ width:9px; height:9px; flex-shrink:0; stroke:currentColor; transition:transform 0.18s ease; }
+  .nav-item-dropdown:hover .nav-dropdown-chevron, .nav-item-dropdown:focus-within .nav-dropdown-chevron{ transform:rotate(180deg); }
+  .nav-dropdown-panel{ position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(-6px); min-width:190px; background:#FFFEEA; border-radius:14px; box-shadow:0 12px 28px rgba(0,0,0,0.14); padding:22px 8px 8px 8px; display:flex; flex-direction:column; gap:2px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity 0.18s ease, transform 0.18s ease; z-index:1001; }
+  .nav-item-dropdown:hover .nav-dropdown-panel, .nav-item-dropdown:focus-within .nav-dropdown-panel{ opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+  .nav-dropdown-panel a{ display:block; padding:10px 14px; border-radius:8px; font-family:'Parkinsans',sans-serif; font-weight:500; font-size:15px; line-height:20px; color:rgba(16,35,63,0.9); white-space:nowrap; }
+  .nav-dropdown-panel a:hover{ background:rgba(251,160,23,0.12); color:#FBA017; }
+  .login-link{ display:flex; align-items:center; gap:6px; padding:3px 20px; margin-left:24px; border-left:1px solid rgba(16,35,63,0.7); font-family:'Parkinsans',sans-serif; font-weight:700; font-size:16px; line-height:24px; text-decoration:underline; color:rgba(16,35,63,0.9); }
+  .login-link svg{ width:18px; height:18px; fill:#172B45; }
+  .mobile-hamburger{ display:none; }
+  .mobile-nav-dropdown{ display:none; }
+
+  /* ============ 404 CONTENT ============ */
+  .error-section{ width:1920px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:16px; padding:120px 211px; background:#FFFFFF; }
+  .error-code{ font-family:'Parkinsans',sans-serif; font-weight:700; font-size:100px; line-height:1; letter-spacing:-2px; color:#FBA017; }
+  .error-title{ font-family:'Parkinsans',sans-serif; font-weight:600; font-size:50px; line-height:69px; letter-spacing:-0.8px; color:#191819; }
+  .error-copy{ font-family:'Sora',sans-serif; font-weight:400; font-size:17px; line-height:26px; color:rgba(25,24,25,0.65); max-width:520px; margin-top:-4px; }
+  .error-btns{ display:flex; flex-direction:row; gap:16px; margin-top:24px; }
+  .btn-primary{
+    position:relative; overflow:hidden;
+    width:190px; height:50px;
+    background:#FBA017; border-radius:10px;
+    transition:background 0.3s ease;
+  }
+  .btn-primary:hover{ background:#10233F; }
+  .btn-primary-inner{ display:flex; flex-direction:column; transition:transform 0.3s ease; }
+  .btn-primary:hover .btn-primary-inner{ transform:translateY(-50px); }
+  .btn-row{
+    display:flex; align-items:center; justify-content:center;
+    width:190px; height:50px;
+    font-family:'Parkinsans',sans-serif; font-weight:600; font-size:14px; line-height:18px;
+  }
+  .btn-row-dark{ color:#191818; }
+  .btn-row-light{ color:#FFFFFF; }
+  .btn-outline-light{
+    position:relative; overflow:hidden;
+    width:190px; height:50px;
+    background:transparent;
+    border:1.5px solid #10233F;
+    border-radius:10px;
+    transition:background 0.3s ease, border-color 0.3s ease;
+  }
+  .btn-outline-light:hover{ background:#10233F; }
+  .btn-outline-light-inner{ display:flex; flex-direction:column; transition:transform 0.3s ease; }
+  .btn-outline-light:hover .btn-outline-light-inner{ transform:translateY(-50px); }
+  .btn-outline-light-row{
+    display:flex; align-items:center; justify-content:center;
+    width:190px; height:48px;
+    font-family:'Parkinsans',sans-serif; font-weight:600; font-size:14px; line-height:18px;
+    color:#10233F;
+  }
+  .btn-outline-light-row.light{ color:#FFFFFF; }
+  .error-links{ margin-top:40px; display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .error-links p{ font-family:'Sora',sans-serif; font-weight:700; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:rgba(25,24,25,0.45); }
+  .error-links-row{ display:flex; flex-direction:row; align-items:center; gap:10px; }
+  .error-links-row a{ position:relative; font-family:'Parkinsans',sans-serif; font-weight:500; font-size:15px; color:rgba(16,35,63,0.9); }
+  .error-links-row a::after{ content:''; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:#02307C; opacity:0; transform:scaleX(0); transform-origin:left; transition:opacity 0.2s ease, transform 0.2s ease; }
+  .error-links-row a:hover::after{ opacity:1; transform:scaleX(1); }
+  .error-links-sep{ color:rgba(25,24,25,0.25); font-size:14px; }
+
+  /* ============ FOOTER MAIN (DARK) ============ */
+  .footer-scrolltop{ position:absolute; top:343px; right:-125px; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; background:#FBA017; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; }
+  .footer-scrolltop svg{ width:16px; height:16px; stroke:#FFFFFF; }
+  .footer-main{ position:relative; width:1920px; background:#10233F; display:flex; flex-direction:column; align-items:center; padding:120px 0 0; }
+  .footer-tagline-wrap{ width:1498px; display:flex; flex-direction:column; align-items:center; padding-bottom:30px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .footer-tagline{ display:flex; flex-direction:row; align-items:center; gap:17px; font-family:'Parkinsans',sans-serif; font-weight:600; font-size:56px; letter-spacing:-2.8px; color:#FFFFFF; }
+  .footer-tagline .dot{ width:15px; height:15px; border-radius:50%; background:#FFFFFF; }
+  .footer-columns{ position:relative; width:1498px; display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding:50px 0; }
+  .footer-col-brand{ width:446px; display:flex; flex-direction:column; gap:24px; }
+  .footer-logo{ display:flex; align-items:center; gap:12px; }
+  .footer-logo img{ width:49px; height:48px; object-fit:contain; }
+  .footer-logo-text-1{ font-family:'Poppins',sans-serif; font-weight:600; font-size:20px; line-height:16px; color:#FFFFFF; width:118px; }
+  .footer-logo-text-2{ font-family:'Poppins',sans-serif; font-weight:600; font-size:20px; line-height:16px; color:#FFFFFF; width:118px; }
+  .footer-desc{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:24px; color:rgba(255,255,255,0.6); }
+  .footer-follow-label{ font-family:'Sora',sans-serif; font-weight:700; font-size:14px; letter-spacing:1.1px; text-transform:uppercase; color:#71717B; }
+  .footer-socials{ display:flex; flex-direction:row; gap:10px; margin-top:12px; }
+  .footer-social{ box-sizing:border-box; width:32px; height:32px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+  .footer-social svg{ width:16px; height:14px; fill:rgba(255,255,255,0.7); }
+  .footer-col-links{ width:220px; flex-shrink:0; }
+  .footer-col-links h4, .footer-col-contact h4{ font-family:'Parkinsans',sans-serif; font-weight:600; font-size:20px; color:#FFFFFF; margin-bottom:20px; }
+  .footer-col-links ul{ list-style:none; display:flex; flex-direction:column; }
+  .footer-col-links li{ padding:7px 0; }
+  .footer-col-links a{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:22px; color:rgba(255,255,255,0.68); text-decoration:none; }
+  .footer-col-links a:hover{ color:#FFFFFF; }
+  .footer-col-contact{ width:264px; flex-shrink:0; }
+  .footer-contact-list{ display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+  .footer-contact-item{ display:flex; flex-direction:row; align-items:center; gap:10px; padding:5px 0; }
+  .footer-contact-icon{ flex-shrink:0; width:28px; height:28px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; }
+  .footer-contact-icon svg{ width:15px; height:15px; fill:#292D32; }
+  .footer-contact-item span{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:22px; color:rgba(255,255,255,0.68); }
+  .footer-bottom{ box-sizing:border-box; width:1498px; display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding:22px 0; border-top:1px solid rgba(255,255,255,0.12); }
+  .footer-bottom span, .footer-bottom a{ font-family:'Sora',sans-serif; font-weight:400; font-size:14px; color:rgba(255,255,255,0.68); text-decoration:none; }
+  .footer-bottom a:hover{ color:#FFFFFF; }
+  .footer-wave-img{ display:block; width:1920px; height:126px; margin-top:-2px; }
+  .footer-links-group{ display:flex; flex-direction:row; align-items:flex-start; gap:38px; }
+
+  @media (max-width: 480px){
+    .scale-wrap{ width:100%; }
+  }
+
+  @media (max-width: 480px){
+    .page-topbar{ width:100%; height:90px; margin:0; }
+    .navbar{ width:calc(100% - 32px); height:auto; left:16px; top:20px; transform:none; }
+    .navbar.scrolled{ top:10px; }
+    .logo{ width:157px; height:38px; }
+    .logo-icon{ width:61.28px; height:61.28px; top:-11.64px; }
+    .logo-text-swift{ font-size:16px; line-height:24px; left:62.78px; top:-0.15px; }
+    .logo-text-learning{ font-size:16px; line-height:24px; left:62.78px; top:14.15px; }
+    .nav-right{ display:none; }
+    .mobile-hamburger{ display:flex; align-items:center; justify-content:center; width:16px; height:24px; padding:0; background:none; border:none; color:#02307C; font-size:20px; line-height:1; cursor:pointer; position:fixed; top:27px; right:22px; z-index:1001; transition:top 0.25s ease; }
+    .navbar.scrolled .mobile-hamburger{ top:17px; }
+    .mobile-nav-dropdown{
+      display:flex; flex-direction:column;
+      position:absolute; top:100%; left:0; width:100%;
+      max-height:0; overflow:hidden; opacity:0;
+      background:#FFFEEA; border-radius:0 0 16px 16px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.14); z-index:999;
+      transition:max-height 0.28s ease, opacity 0.22s ease;
+    }
+    .mobile-nav-dropdown.open{ max-height:calc(100vh - 100px); opacity:1; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+    .mobile-nav-dropdown a{
+      display:block; width:100%; box-sizing:border-box;
+      padding:16px 20px;
+      font-family:'Parkinsans',sans-serif; font-weight:500; font-size:16px; line-height:22px;
+      color:rgba(16,35,63,0.9);
+      border-bottom:1px solid rgba(25,24,25,0.08);
+      border-left:3px solid transparent;
+    }
+    .mobile-nav-dropdown a:last-child{ border-bottom:none; }
+    .mobile-nav-dropdown a.active{
+      color:#FBA017; font-weight:700;
+      border-left:3px solid #FBA017; padding-left:17px;
+    }
+    .mobile-nav-dropdown a.mobile-nav-login{ font-weight:700; }
+    .mobile-nav-item-group{ border-bottom:1px solid rgba(25,24,25,0.08); }
+    .mobile-nav-accordion-row{ display:flex; align-items:stretch; width:100%; box-sizing:border-box; border-left:3px solid transparent; }
+    .mobile-nav-accordion-label{ flex:1; display:block; padding:16px 20px; font-family:'Parkinsans',sans-serif; font-weight:500; font-size:16px; line-height:22px; color:rgba(16,35,63,0.9); }
+    .mobile-nav-accordion-row.active{ border-left:3px solid #FBA017; }
+    .mobile-nav-accordion-row.active .mobile-nav-accordion-label{ color:#FBA017; font-weight:700; padding-left:17px; }
+    .mobile-nav-item-group.open .mobile-nav-accordion-row{ border-left:3px solid #FBA017; }
+    .mobile-nav-item-group.open .mobile-nav-accordion-label{ color:#FBA017; }
+    .mobile-nav-accordion-toggle{ display:flex; align-items:center; justify-content:center; width:52px; flex-shrink:0; box-sizing:border-box; background:none; border:none; padding:0; cursor:pointer; color:rgba(16,35,63,0.9); }
+    .mobile-nav-item-group.open .mobile-nav-accordion-toggle{ color:#FBA017; }
+    .mobile-nav-chevron{ width:11px; height:11px; flex-shrink:0; stroke:currentColor; transition:transform 0.22s ease; }
+    .mobile-nav-item-group.open .mobile-nav-chevron{ transform:rotate(180deg); }
+    .mobile-nav-submenu{ max-height:0; overflow:hidden; background:rgba(251,160,23,0.06); transition:max-height 0.25s ease; }
+    .mobile-nav-item-group.open .mobile-nav-submenu{ max-height:400px; }
+    .mobile-nav-submenu a{ display:block; box-sizing:border-box; padding:13px 20px 13px 34px; font-family:'Sora',sans-serif; font-weight:400; font-size:15px; line-height:20px; color:rgba(16,35,63,0.8); border-bottom:1px solid rgba(25,24,25,0.06); border-left:3px solid transparent; }
+    .mobile-nav-submenu a:last-child{ border-bottom:none; }
+    .mobile-nav-submenu a:hover, .mobile-nav-submenu a:active{ color:#FBA017; border-left:3px solid #FBA017; padding-left:31px; }
+
+    .error-section{ width:100%; padding:60px 20px; gap:12px; }
+    .error-code{ font-size:64px; }
+    .error-title{ font-size:30px; line-height:38px; }
+    .error-copy{ font-size:15px; line-height:24px; }
+    .error-btns{ flex-direction:column; width:100%; gap:12px; margin-top:20px; }
+    .btn-primary, .btn-outline-light, .btn-row, .btn-outline-light-row{ width:100%; }
+    .error-links{ margin-top:32px; }
+    .error-links-row{ flex-wrap:wrap; justify-content:center; }
+
+    .footer-main{ width:100%; padding-top:120px; gap:50px; }
+    .footer-tagline-wrap{ width:100%; padding:0 16px 30px; border-bottom:1px solid rgba(255,255,255,0.1); }
+    .footer-tagline{ flex-wrap:wrap; justify-content:center; text-align:center; width:100%; max-width:100%; font-size:32px; font-weight:600; line-height:35px; letter-spacing:-0.8px; color:#FFFFFF; }
+    .footer-columns{ width:100%; flex-direction:column; align-items:center; padding:0 16px 40px; gap:48px; }
+    .footer-col-brand{ width:100%; gap:24px; }
+    .footer-follow-label{ color:rgba(255,255,255,0.45); }
+    .footer-social{ border-radius:9999px; }
+    .footer-links-group{ flex-direction:column; align-items:flex-start; width:100%; gap:48px; }
+    .footer-col-links{ width:100%; }
+    .footer-col-links li{ padding:6px 0; }
+    .footer-col-links a{ font-size:16px; line-height:24px; color:rgba(255,255,255,0.68); }
+    .footer-col-contact{ width:100%; }
+    .footer-contact-item span{ font-size:16px; line-height:24px; color:rgba(255,255,255,0.68); }
+    .footer-scrolltop{ position:static; align-self:flex-end; margin-left:auto; transform:none; width:40px; height:40px; border-radius:9.3px; }
+    .footer-bottom{ width:100%; flex-direction:column; align-items:center; gap:12px; text-align:center; }
+    .footer-bottom span, .footer-bottom a{ font-size:14px; line-height:20px; color:rgba(255,255,255,0.68); }
+    .footer-wave-img{ width:100%; height:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scale-wrap" id="scaleWrap">
+
+  <div class="page-topbar">
+    <nav class="navbar">
+      <a class="logo" href="index.html">
+        <img src="assets/logo-icon.png" alt="Swift Smart Learning" class="logo-icon">
+        <span class="logo-text-swift">Swift Smart</span>
+        <span class="logo-text-learning">Learning</span>
+      </a>
+      <div class="nav-right">
+        <div class="navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="subjects.html">Subjects</a>
+          <div class="nav-item-dropdown">
+            <a href="test-prep.html">Test Prep <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+            <div class="nav-dropdown-panel">
+              <a href="test-prep-11plus.html">11+</a>
+              <a href="test-prep-13plus.html">13+</a>
+              <a href="test-prep-act.html">ACT</a>
+              <a href="test-prep-a-levels.html">A-Levels</a>
+              <a href="test-prep-naplan.html">NAPLAN</a>
+              <a href="test-prep-hsc-vce-qce.html">HSC/VCE/QCE</a>
+            </div>
+          </div>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <a href="index.html#" class="login-link">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          Login
+        </a>
+      </div>
+      <button type="button" class="mobile-hamburger" aria-label="Menu" aria-expanded="false" id="mobileHamburgerBtn">&#9776;</button>
+      <div class="mobile-nav-dropdown" id="mobileNavDropdown">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="subjects.html">Subjects</a>
+        <div class="mobile-nav-item-group">
+          <div class="mobile-nav-accordion-row">
+            <a href="test-prep.html" class="mobile-nav-accordion-label">Test Prep</a>
+            <button type="button" class="mobile-nav-accordion-toggle" aria-expanded="false" aria-label="Show Test Prep options">
+              <svg class="mobile-nav-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="mobile-nav-submenu">
+            <a href="test-prep-11plus.html">11+</a>
+            <a href="test-prep-13plus.html">13+</a>
+            <a href="test-prep-act.html">ACT</a>
+            <a href="test-prep-a-levels.html">A-Levels</a>
+            <a href="test-prep-naplan.html">NAPLAN</a>
+            <a href="test-prep-hsc-vce-qce.html">HSC/VCE/QCE</a>
+          </div>
+        </div>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#" class="mobile-nav-login">Login</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="error-section">
+    <span class="error-code">404</span>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-copy">The page you're looking for doesn't exist or may have been moved.</p>
+    <div class="error-btns">
+      <a href="index.html" class="btn-primary">
+        <span class="btn-primary-inner">
+          <span class="btn-row btn-row-dark">Back to Home</span>
+          <span class="btn-row btn-row-light">Back to Home</span>
+        </span>
+      </a>
+      <a href="contact.html" class="btn-outline-light">
+        <span class="btn-outline-light-inner">
+          <span class="btn-outline-light-row">Contact Us</span>
+          <span class="btn-outline-light-row light">Contact Us</span>
+        </span>
+      </a>
+    </div>
+    <div class="error-links">
+      <p>You Might Be Looking For</p>
+      <div class="error-links-row">
+        <a href="subjects.html">Subjects</a>
+        <span class="error-links-sep">&middot;</span>
+        <a href="test-prep.html">Test Prep</a>
+        <span class="error-links-sep">&middot;</span>
+        <a href="pricing.html">Pricing</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-tagline-wrap">
+      <div class="footer-tagline">
+        <span>Learn</span><span class="dot"></span><span>Grow</span><span class="dot"></span><span>Succeed</span>
+      </div>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col-brand">
+        <div class="footer-logo">
+          <img src="assets/footer-logo-icon.png" alt="">
+          <div style="display:flex; flex-direction:column;">
+            <span class="footer-logo-text-1">Swift Smart</span>
+            <span class="footer-logo-text-2">Learning</span>
+          </div>
+        </div>
+        <p class="footer-desc">Personalized 1-on-1 online tutoring for students &mdash; matched with the right tutor after a free diagnostic trial lesson.</p>
+        <div>
+          <p class="footer-follow-label">Follow Us</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M13.5 9H15V6h-1.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.2l.3-3H13v-1.2c0-.4.3-.8.5-.8z"/></svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9h3.8v1.9h.05c.53-1 1.8-1.9 3.7-1.9 3.9 0 4.65 2.6 4.65 5.9V21h-4v-5.4c0-1.3-.02-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21h-4V9z"/></svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M18.9 3h3.2l-7 8 8.2 10h-6.4l-5-6.5L5 21H1.8l7.5-8.5L1.4 3h6.5l4.5 6z"/></svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M23 7.2c-.2-1.6-1.5-2.9-3.1-3-3-.2-11.8-.2-14.8 0C3.5 4.3 2.2 5.6 2 7.2 1.8 9 1.8 15 2 16.8c.2 1.6 1.5 2.9 3.1 3 3 .2 11.8.2 14.8 0 1.6-.1 2.9-1.4 3.1-3 .2-1.8.2-7.8 0-9.6zM9.5 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links-group">
+      <div class="footer-col-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="subjects.html">Subjects</a></li>
+          <li><a href="test-prep.html">Test Prep</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Book a Free Trial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-links">
+        <h4>Popular Test Prep</h4>
+        <ul>
+          <li><a href="test-prep-11plus.html">11+</a></li>
+          <li><a href="test-prep-13plus.html">13+</a></li>
+          <li><a href="test-prep-act.html">ACT</a></li>
+          <li><a href="test-prep-a-levels.html">A-Levels</a></li>
+          <li><a href="test-prep-naplan.html">NAPLAN</a></li>
+          <li><a href="test-prep-hsc-vce-qce.html">HSC / VCE / QCE</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-contact">
+        <h4>Get In Touch</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.5 0 1 .4 1 1V20c0 .6-.5 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .5 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg></span>
+            <span>1300 785 395</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+            <span>hello@swiftsmartlearning.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 11h-5v-2h3V6h2v7z"/></svg></span>
+            <span>Mon&ndash;Sat, 8am&ndash;8pm AEST</span>
+          </div>
+          <div class="footer-contact-item" style="align-items:flex-start;">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></span>
+            <span>Online tutors across globally</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <button class="footer-scrolltop" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </button>
+    </div>
+    <div class="footer-bottom">
+      <span>Copyright &copy; 2026 Swift Smart Learning. All Rights Reserved.</span>
+      <span><a href="terms.html">Terms of Service</a> &middot; <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="refund-policy.html">Refund Policy</a></span>
+    </div>
+  </footer>
+  <img class="footer-wave-img" src="assets/footer-clouds.png" alt="">
+</div>
+
+<script>
+  function fitScale(){
+    var wrap = document.getElementById('scaleWrap');
+    var designWidth = 1920;
+    if (window.innerWidth <= 480) {
+      wrap.style.zoom = 1;
+      return;
+    }
+    var scale = (window.innerWidth / designWidth) * 0.998;
+    wrap.style.zoom = scale;
+  }
+  window.addEventListener('resize', fitScale);
+  window.addEventListener('load', fitScale);
+  fitScale();
+
+  function updateNavbarScrolled(){
+    var nav = document.querySelector('.navbar');
+    if(!nav) return;
+    if (window.scrollY > 40) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', updateNavbarScrolled);
+  window.addEventListener('load', updateNavbarScrolled);
+  updateNavbarScrolled();
+
+  /* Mobile hamburger dropdown */
+  var mobileHamburgerBtn = document.getElementById('mobileHamburgerBtn');
+  var mobileNavDropdown = document.getElementById('mobileNavDropdown');
+  function closeMobileNav(){
+    if(!mobileNavDropdown) return;
+    mobileNavDropdown.classList.remove('open');
+    mobileHamburgerBtn.setAttribute('aria-expanded', 'false');
+    mobileHamburgerBtn.innerHTML = '&#9776;';
+    document.querySelectorAll('.mobile-nav-item-group.open').forEach(function(g){
+      g.classList.remove('open');
+      var toggle = g.querySelector('.mobile-nav-accordion-toggle');
+      if(toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+    document.body.style.overflow = '';
+  }
+  function openMobileNav(){
+    if(!mobileNavDropdown) return;
+    mobileNavDropdown.classList.add('open');
+    mobileHamburgerBtn.setAttribute('aria-expanded', 'true');
+    mobileHamburgerBtn.innerHTML = '&#10005;';
+    document.body.style.overflow = 'hidden';
+  }
+  if(mobileHamburgerBtn && mobileNavDropdown){
+    mobileHamburgerBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(mobileNavDropdown.classList.contains('open')){ closeMobileNav(); }
+      else { openMobileNav(); }
+    });
+    mobileNavDropdown.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('click', function(e){
+      if(!mobileNavDropdown.classList.contains('open')) return;
+      if(mobileNavDropdown.contains(e.target) || mobileHamburgerBtn.contains(e.target)) return;
+      closeMobileNav();
+    });
+  }
+
+  /* Mobile "Test Prep" accordion (tap to expand/collapse sub-links) */
+  document.querySelectorAll('.mobile-nav-accordion-toggle').forEach(function(toggleBtn){
+    toggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var group = toggleBtn.closest('.mobile-nav-item-group');
+      if(!group) return;
+      var isOpen = group.classList.contains('open');
+      document.querySelectorAll('.mobile-nav-item-group.open').forEach(function(g){
+        g.classList.remove('open');
+        var t = g.querySelector('.mobile-nav-accordion-toggle');
+        if(t) t.setAttribute('aria-expanded', 'false');
+      });
+      if(!isOpen){
+        group.classList.add('open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  var scrollTopBtn = document.getElementById('scrollTopBtn');
+  if(scrollTopBtn){
+    scrollTopBtn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+
+</body>
+</html>

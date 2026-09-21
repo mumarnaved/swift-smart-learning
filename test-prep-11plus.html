@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11+ Exam Preparation | Swift Smart Learning</title>
+<meta name="description" content="Expert 1-on-1 online tutoring for the 11+ exam - build the reasoning, English and maths skills needed for selective school entry.">
+<link rel="icon" type="image/png" href="assets/logo-icon.png">
+<meta property="og:title" content="11+ Exam Preparation | Swift Smart Learning">
+<meta property="og:description" content="Expert 1-on-1 online tutoring for the 11+ exam - build the reasoning, English and maths skills needed for selective school entry.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="test-prep-11plus.html">
+<!-- og:image intentionally omitted - no dedicated social-share image asset yet -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@500;600;700&family=Sora:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  body{background:#F7F7F2; margin:0; overflow-x:hidden;}
+  .scale-wrap{ width:1920px; }
+
+  /* ============ TOP BAR (navbar host) ============ */
+  .page-topbar{ position:relative; width:1900px; height:168px; margin:10px auto 0; background:#F7F7F2; }
+  .navbar{ position:fixed; display:flex; flex-direction:row; justify-content:space-between; align-items:center; width:1800px; height:47.76px; left:50%; top:60px; transform:translateX(-50%); z-index:1000; border-radius:16px; background:transparent; box-shadow:none; transition:background-color 0.25s ease, box-shadow 0.25s ease, top 0.25s ease; }
+  .navbar.scrolled{ top:16px; background:#FFFEEA; box-shadow:0 4px 24px rgba(0,0,0,0.12); }
+  .logo{ position:relative; width:197px; height:47.76px; flex-shrink:0; }
+  .logo-icon{ position:absolute; width:76.67px; height:76.67px; left:0px; top:-14.46px; object-fit:contain; display:block; }
+  .logo-text-swift{ position:absolute; left:78.67px; top:-0.08px; font-family:'Poppins',sans-serif; font-weight:600; font-size:20.1823px; line-height:30px; color:#02307C; white-space:nowrap; }
+  .logo-text-learning{ position:absolute; left:78.67px; top:17.84px; font-family:'Poppins',sans-serif; font-weight:600; font-size:20.1823px; line-height:30px; color:#0BC28B; white-space:nowrap; }
+  .nav-right{ display:flex; flex-direction:row; align-items:center; }
+  .navigation{ display:flex; flex-direction:row; align-items:center; gap:24px; }
+  .navigation a{ font-family:'Parkinsans',sans-serif; font-weight:500; font-size:16px; line-height:24px; color:rgba(16,35,63,0.9); padding:6px 0; }
+  .navigation a.active{ font-weight:700; color:#02307C; }
+  .navigation a{ position:relative; }
+  .navigation a::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:2px; background:#02307C; opacity:0; transform:scaleX(0); transform-origin:left; transition:opacity 0.2s ease, transform 0.2s ease; }
+  .navigation a:hover::after{ opacity:1; transform:scaleX(1); }
+  .nav-item-dropdown:hover > a::after, .nav-item-dropdown:focus-within > a::after{ opacity:1; transform:scaleX(1); }
+  .nav-item-dropdown{ position:relative; }
+  .nav-item-dropdown > a{ display:inline-flex; align-items:center; gap:4px; }
+  .nav-item-dropdown:hover > a, .nav-item-dropdown:focus-within > a{ color:#FBA017; }
+  .nav-dropdown-chevron{ width:9px; height:9px; flex-shrink:0; stroke:currentColor; transition:transform 0.18s ease; }
+  .nav-item-dropdown:hover .nav-dropdown-chevron, .nav-item-dropdown:focus-within .nav-dropdown-chevron{ transform:rotate(180deg); }
+  .nav-dropdown-panel{ position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(-6px); min-width:190px; background:#FFFEEA; border-radius:14px; box-shadow:0 12px 28px rgba(0,0,0,0.14); padding:22px 8px 8px 8px; display:flex; flex-direction:column; gap:2px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity 0.18s ease, transform 0.18s ease; z-index:1001; }
+  .nav-item-dropdown:hover .nav-dropdown-panel, .nav-item-dropdown:focus-within .nav-dropdown-panel{ opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+  .nav-dropdown-panel a{ display:block; padding:10px 14px; border-radius:8px; font-family:'Parkinsans',sans-serif; font-weight:500; font-size:15px; line-height:20px; color:rgba(16,35,63,0.9); white-space:nowrap; }
+  .nav-dropdown-panel a:hover{ background:rgba(251,160,23,0.12); color:#FBA017; }
+  .login-link{ display:flex; align-items:center; gap:6px; padding:3px 20px; margin-left:24px; border-left:1px solid rgba(16,35,63,0.7); font-family:'Parkinsans',sans-serif; font-weight:700; font-size:16px; line-height:24px; text-decoration:underline; color:rgba(16,35,63,0.9); }
+  .login-link svg{ width:18px; height:18px; fill:#172B45; }
+  .mobile-hamburger{ display:none; }
+  .mobile-nav-dropdown{ display:none; }
+
+  /* ============ PAGE BANNER ============ */
+  .page-banner{ width:1920px; display:flex; flex-direction:column; align-items:center; gap:16px; padding:80px 211px; background:#FFFFFF; text-align:center; }
+  .page-banner-title{ font-family:'Parkinsans',sans-serif; font-weight:600; font-size:50px; line-height:69px; letter-spacing:-0.8px; color:#191819; }
+  .page-eyebrow{ font-family:'Sora',sans-serif; font-weight:600; font-size:14px; letter-spacing:1.2px; text-transform:uppercase; color:#FBA017; }
+  .page-breadcrumb{ font-family:'Sora',sans-serif; font-weight:400; font-size:14px; color:rgba(25,24,25,0.55); }
+  .page-breadcrumb a{ color:rgba(25,24,25,0.85); text-decoration:underline; }
+  .page-trustline{ font-family:'Sora',sans-serif; font-weight:500; font-size:14px; color:rgba(25,24,25,0.55); }
+
+  /* ============ PAGE CONTENT ============ */
+  .page-content{ width:1920px; display:flex; flex-direction:column; align-items:center; padding:0 211px 100px; background:#FFFFFF; }
+  .content-inner{ width:1498px; max-width:100%; display:flex; flex-direction:column; gap:80px; }
+  .prep-section h2{
+    font-family:'Parkinsans',sans-serif; font-weight:600; font-size:36px; line-height:44px;
+    letter-spacing:-0.5px; color:#191819; margin-bottom:16px; text-align:center;
+  }
+  .prep-section-intro{
+    width:100%; max-width:820px; margin:0 auto 40px;
+    font-family:'Sora',sans-serif; font-weight:400; font-size:17px; line-height:27px;
+    color:rgba(25,24,25,0.75); text-align:center;
+  }
+
+  /* ---- Intro banner (highlighted box + CTA) ---- */
+  .intro-banner{
+    box-sizing:border-box; width:100%; padding:48px;
+    background:#FFF9F0; border-radius:24px;
+    display:flex; flex-direction:column; align-items:center; gap:24px; text-align:center;
+  }
+  .intro-banner p{ font-family:'Sora',sans-serif; font-weight:400; font-size:18px; line-height:29px; color:rgba(25,24,25,0.8); max-width:900px; }
+  .intro-banner .fine-note{ font-family:'Sora',sans-serif; font-weight:500; font-size:14px; color:rgba(25,24,25,0.55); }
+  .cta-btn{
+    position:relative; overflow:hidden;
+    height:54px; padding:0;
+    background-color:#FBA017; border:none; border-radius:10px;
+    cursor:pointer; transition:background-color 0.3s ease;
+  }
+  .cta-btn:hover{ background-color:#10233F; }
+  .cta-btn-inner{ display:flex; flex-direction:column; transition:transform 0.3s ease; }
+  .cta-btn:hover .cta-btn-inner{ transform:translateY(-54px); }
+  .cta-btn-row{
+    display:flex; align-items:center; justify-content:center;
+    height:54px; padding:0 36px;
+    font-family:'Parkinsans',sans-serif; font-weight:600; font-size:15px;
+  }
+  .cta-btn-row.dark{ color:#191818; }
+  .cta-btn-row.light{ color:#FFFFFF; }
+
+  /* ---- Stat pills (reused approach-stats pattern) ---- */
+  .approach-stats{
+    display:flex; flex-direction:row; justify-content:center; flex-wrap:wrap;
+    gap:48px; margin-top:8px;
+  }
+  .approach-stat{ display:flex; flex-direction:column; align-items:center; gap:8px; max-width:200px; }
+  .approach-stat-num{
+    font-family:'Parkinsans',sans-serif; font-weight:600; font-size:30px;
+    letter-spacing:-0.5px; color:#FBA017;
+  }
+  .approach-stat p{
+    font-family:'Sora',sans-serif; font-weight:500; font-size:14px; line-height:20px;
+    color:rgba(25,24,25,0.75); text-align:center;
+  }
+
+  /* ---- Feature card grid (reused site pattern) ---- */
+  .feature-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .feature-grid-4{ grid-template-columns:repeat(4, 1fr); }
+  .feature-card{
+    box-sizing:border-box;
+    padding:28px 24px;
+    background:#FFF9F0;
+    box-shadow:0px 4px 40px rgba(0,0,0,0.03);
+    border-radius:16px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .feature-icon{
+    width:56px; height:56px; border-radius:28px;
+    background:rgba(246,88,43,0.09);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .feature-icon svg{ width:26px; height:26px; }
+  .feature-card h3{ font-family:'Parkinsans',sans-serif; font-weight:500; font-size:18px; line-height:26px; color:#191819; }
+  .feature-card p{ font-family:'Sora',sans-serif; font-weight:400; font-size:15px; line-height:22px; color:rgba(25,24,25,0.75); }
+  .feature-card .card-meta{ font-family:'Sora',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.3px; color:#FBA017; text-transform:uppercase; }
+
+  /* ---- Exam structure list ---- */
+  .exam-structure-card{
+    width:100%; background:#FFF9F0; border-radius:16px; overflow:hidden;
+  }
+  .exam-row{
+    display:flex; flex-direction:row; align-items:center; justify-content:space-between;
+    padding:20px 36px; border-bottom:1px solid rgba(25,24,25,0.08);
+  }
+  .exam-row:last-child{ border-bottom:none; }
+  .exam-row.total{ background:rgba(251,160,23,0.1); }
+  .exam-subject{ font-family:'Parkinsans',sans-serif; font-weight:600; font-size:17px; color:#191819; }
+  .exam-duration{ font-family:'Sora',sans-serif; font-weight:500; font-size:15px; color:rgba(25,24,25,0.7); text-align:right; }
+  .exam-row.total .exam-subject, .exam-row.total .exam-duration{ color:#191819; }
+
+  /* ---- Inline free trial form (same pattern as index.html / contact.html) ---- */
+  .book-trial-inline{ width:100%; max-width:640px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
+  .book-trial-inline p{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:24px; color:rgba(25,24,25,0.7); margin-bottom:24px; }
+  .book-trial-form{ width:100%; display:flex; flex-direction:column; gap:16px; text-align:left; }
+  .book-trial-field{ display:flex; flex-direction:column; gap:6px; }
+  .book-trial-field label{ font-family:'Sora',sans-serif; font-weight:500; font-size:14px; color:rgba(25,24,25,0.8); }
+  .book-trial-field input, .book-trial-field select{
+    font-family:'Sora',sans-serif; font-weight:400; font-size:15px;
+    color:#191819;
+    padding:13px 16px;
+    border:1px solid rgba(25,24,25,0.15);
+    border-radius:10px;
+    background:#FFFFFF;
+    outline:none;
+    transition:border-color 0.2s ease;
+  }
+  .book-trial-field input:focus, .book-trial-field select:focus{ border-color:#FBA017; }
+  .book-trial-field input.invalid, .book-trial-field select.invalid{ border-color:#C0392B; }
+  .book-trial-field-error{
+    display:none;
+    font-family:'Sora',sans-serif; font-size:13px; line-height:18px; color:#C0392B;
+    margin-top:2px;
+  }
+  .book-trial-field-error.show{ display:block; }
+  .book-trial-checkbox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px 16px;
+    margin-top:4px;
+    padding:12px 14px;
+    border:1px solid rgba(25,24,25,0.15);
+    border-radius:10px;
+    background:#FFFFFF;
+  }
+  .book-trial-checkbox-grid.invalid{ border-color:#C0392B; }
+  .book-trial-checkbox{
+    display:flex; align-items:center; gap:8px; min-height:44px;
+    font-family:'Sora',sans-serif; font-weight:400; font-size:14px;
+    color:rgba(25,24,25,0.85);
+    cursor:pointer;
+  }
+  .book-trial-checkbox input{ width:18px; height:18px; flex-shrink:0; accent-color:#FBA017; cursor:pointer; }
+  .book-trial-btn{
+    position:relative; overflow:hidden;
+    width:100%; height:54px; margin-top:4px;
+    background-color:#FBA017;
+    border:none; border-radius:10px;
+    cursor:pointer;
+    transition:background-color 0.3s ease;
+  }
+  .book-trial-btn:hover{ background-color:#10233F; }
+  .book-trial-btn-slider{ position:absolute; top:0; left:0; width:100%; transition:transform 0.3s ease; }
+  .book-trial-btn:hover .book-trial-btn-slider{ transform:translateY(-54px); }
+  .book-trial-btn-line{
+    display:flex; align-items:center; justify-content:center;
+    width:100%; height:54px;
+    font-family:'Parkinsans',sans-serif; font-weight:600; font-size:15px;
+  }
+  .book-trial-btn-line-1{ color:#191818; }
+  .book-trial-btn-line-2{ color:#FFFFFF; }
+  .book-trial-btn[disabled]{ opacity:0.6; cursor:not-allowed; }
+  .book-trial-form-error{
+    display:none;
+    font-family:'Sora',sans-serif; font-size:14px; line-height:21px; color:#C0392B;
+  }
+  .book-trial-form-error.show{ display:block; }
+  .book-trial-form-error a{ color:#C0392B; text-decoration:underline; }
+  .book-trial-success{
+    display:none;
+    flex-direction:column; align-items:center; text-align:center;
+    gap:16px; padding:24px 0;
+  }
+  .book-trial-success.show{ display:flex; }
+  .book-trial-success svg{ width:56px; height:56px; }
+  .book-trial-success p{
+    font-family:'Sora',sans-serif; font-weight:500; font-size:17px; color:#191819; margin-bottom:0;
+  }
+
+  /* ---- Closing CTA ---- */
+  .closing-cta{
+    box-sizing:border-box;
+    width:100%;
+    padding:56px;
+    background:#10233F;
+    border-radius:24px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:16px;
+  }
+  .closing-cta h2{ font-family:'Parkinsans',sans-serif; font-weight:600; font-size:30px; line-height:38px; color:#FFFFFF; }
+  .closing-cta p{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:26px; color:rgba(255,255,255,0.75); max-width:640px; }
+  .closing-cta .book-trial-inline p{ color:rgba(255,255,255,0.75); }
+  .closing-cta .book-trial-field > label{ color:rgba(255,255,255,0.85); }
+  .closing-cta .book-trial-field input, .closing-cta .book-trial-field select, .closing-cta .book-trial-checkbox-grid{
+    background:#FFFFFF; border-color:rgba(255,255,255,0.2);
+  }
+  .closing-cta .book-trial-success p{ color:#FFFFFF; }
+
+  /* ============ FOOTER MAIN (DARK) ============ */
+  .footer-scrolltop{ position:absolute; top:343px; right:-125px; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; background:#FBA017; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; }
+  .footer-scrolltop svg{ width:16px; height:16px; stroke:#FFFFFF; }
+  .footer-main{ position:relative; width:1920px; background:#10233F; display:flex; flex-direction:column; align-items:center; padding:120px 0 0; }
+  .footer-tagline-wrap{ width:1498px; display:flex; flex-direction:column; align-items:center; padding-bottom:30px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .footer-tagline{ display:flex; flex-direction:row; align-items:center; gap:17px; font-family:'Parkinsans',sans-serif; font-weight:600; font-size:56px; letter-spacing:-2.8px; color:#FFFFFF; }
+  .footer-tagline .dot{ width:15px; height:15px; border-radius:50%; background:#FFFFFF; }
+  .footer-columns{ position:relative; width:1498px; display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding:50px 0; }
+  .footer-col-brand{ width:446px; display:flex; flex-direction:column; gap:24px; }
+  .footer-logo{ display:flex; align-items:center; gap:12px; }
+  .footer-logo img{ width:49px; height:48px; object-fit:contain; }
+  .footer-logo-text-1{ font-family:'Poppins',sans-serif; font-weight:600; font-size:20px; line-height:16px; color:#FFFFFF; width:118px; }
+  .footer-logo-text-2{ font-family:'Poppins',sans-serif; font-weight:600; font-size:20px; line-height:16px; color:#FFFFFF; width:118px; }
+  .footer-desc{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:24px; color:rgba(255,255,255,0.6); }
+  .footer-follow-label{ font-family:'Sora',sans-serif; font-weight:700; font-size:14px; letter-spacing:1.1px; text-transform:uppercase; color:#71717B; }
+  .footer-socials{ display:flex; flex-direction:row; gap:10px; margin-top:12px; }
+  .footer-social{ box-sizing:border-box; width:32px; height:32px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+  .footer-social svg{ width:16px; height:14px; fill:rgba(255,255,255,0.7); }
+  .footer-col-links{ width:220px; flex-shrink:0; }
+  .footer-col-links h4, .footer-col-contact h4{ font-family:'Parkinsans',sans-serif; font-weight:600; font-size:20px; color:#FFFFFF; margin-bottom:20px; }
+  .footer-col-links ul{ list-style:none; display:flex; flex-direction:column; }
+  .footer-col-links li{ padding:7px 0; }
+  .footer-col-links a{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:22px; color:rgba(255,255,255,0.68); text-decoration:none; }
+  .footer-col-links a:hover{ color:#FFFFFF; }
+  .footer-col-contact{ width:264px; flex-shrink:0; }
+  .footer-contact-list{ display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+  .footer-contact-item{ display:flex; flex-direction:row; align-items:center; gap:10px; padding:5px 0; }
+  .footer-contact-icon{ flex-shrink:0; width:28px; height:28px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; }
+  .footer-contact-icon svg{ width:15px; height:15px; fill:#292D32; }
+  .footer-contact-item span{ font-family:'Sora',sans-serif; font-weight:400; font-size:16px; line-height:22px; color:rgba(255,255,255,0.68); }
+  .footer-bottom{ box-sizing:border-box; width:1498px; display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding:22px 0; border-top:1px solid rgba(255,255,255,0.12); }
+  .footer-bottom span, .footer-bottom a{ font-family:'Sora',sans-serif; font-weight:400; font-size:14px; color:rgba(255,255,255,0.68); text-decoration:none; }
+  .footer-bottom a:hover{ color:#FFFFFF; }
+  .footer-wave-img{ display:block; width:1920px; height:126px; margin-top:-2px; }
+  .footer-links-group{ display:flex; flex-direction:row; align-items:flex-start; gap:38px; }
+
+  @media (max-width: 480px){
+    .scale-wrap{ width:100%; }
+  }
+
+  @media (max-width: 480px){
+    .page-topbar{ width:100%; height:90px; margin:0; }
+    .navbar{ width:calc(100% - 32px); height:auto; left:16px; top:20px; transform:none; }
+    .navbar.scrolled{ top:10px; }
+    .logo{ width:157px; height:38px; }
+    .logo-icon{ width:61.28px; height:61.28px; top:-11.64px; }
+    .logo-text-swift{ font-size:16px; line-height:24px; left:62.78px; top:-0.15px; }
+    .logo-text-learning{ font-size:16px; line-height:24px; left:62.78px; top:14.15px; }
+    .nav-right{ display:none; }
+    .mobile-hamburger{ display:flex; align-items:center; justify-content:center; width:16px; height:24px; padding:0; background:none; border:none; color:#02307C; font-size:20px; line-height:1; cursor:pointer; position:fixed; top:27px; right:22px; z-index:1001; transition:top 0.25s ease; }
+    .navbar.scrolled .mobile-hamburger{ top:17px; }
+    .mobile-nav-dropdown{
+      display:flex; flex-direction:column;
+      position:absolute; top:100%; left:0; width:100%;
+      max-height:0; overflow:hidden; opacity:0;
+      background:#FFFEEA; border-radius:0 0 16px 16px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.14); z-index:999;
+      transition:max-height 0.28s ease, opacity 0.22s ease;
+    }
+    .mobile-nav-dropdown.open{ max-height:calc(100vh - 100px); opacity:1; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+    .mobile-nav-dropdown a{
+      display:block; width:100%; box-sizing:border-box;
+      padding:16px 20px;
+      font-family:'Parkinsans',sans-serif; font-weight:500; font-size:16px; line-height:22px;
+      color:rgba(16,35,63,0.9);
+      border-bottom:1px solid rgba(25,24,25,0.08);
+      border-left:3px solid transparent;
+    }
+    .mobile-nav-dropdown a:last-child{ border-bottom:none; }
+    .mobile-nav-dropdown a.active{
+      color:#FBA017; font-weight:700;
+      border-left:3px solid #FBA017; padding-left:17px;
+    }
+    .mobile-nav-dropdown a.mobile-nav-login{ font-weight:700; }
+    .mobile-nav-item-group{ border-bottom:1px solid rgba(25,24,25,0.08); }
+    .mobile-nav-accordion-row{ display:flex; align-items:stretch; width:100%; box-sizing:border-box; border-left:3px solid transparent; }
+    .mobile-nav-accordion-label{ flex:1; display:block; padding:16px 20px; font-family:'Parkinsans',sans-serif; font-weight:500; font-size:16px; line-height:22px; color:rgba(16,35,63,0.9); }
+    .mobile-nav-accordion-row.active{ border-left:3px solid #FBA017; }
+    .mobile-nav-accordion-row.active .mobile-nav-accordion-label{ color:#FBA017; font-weight:700; padding-left:17px; }
+    .mobile-nav-item-group.open .mobile-nav-accordion-row{ border-left:3px solid #FBA017; }
+    .mobile-nav-item-group.open .mobile-nav-accordion-label{ color:#FBA017; }
+    .mobile-nav-accordion-toggle{ display:flex; align-items:center; justify-content:center; width:52px; flex-shrink:0; box-sizing:border-box; background:none; border:none; padding:0; cursor:pointer; color:rgba(16,35,63,0.9); }
+    .mobile-nav-item-group.open .mobile-nav-accordion-toggle{ color:#FBA017; }
+    .mobile-nav-chevron{ width:11px; height:11px; flex-shrink:0; stroke:currentColor; transition:transform 0.22s ease; }
+    .mobile-nav-item-group.open .mobile-nav-chevron{ transform:rotate(180deg); }
+    .mobile-nav-submenu{ max-height:0; overflow:hidden; background:rgba(251,160,23,0.06); transition:max-height 0.25s ease; }
+    .mobile-nav-item-group.open .mobile-nav-submenu{ max-height:400px; }
+    .mobile-nav-submenu a{ display:block; box-sizing:border-box; padding:13px 20px 13px 34px; font-family:'Sora',sans-serif; font-weight:400; font-size:15px; line-height:20px; color:rgba(16,35,63,0.8); border-bottom:1px solid rgba(25,24,25,0.06); border-left:3px solid transparent; }
+    .mobile-nav-submenu a:last-child{ border-bottom:none; }
+    .mobile-nav-submenu a:hover, .mobile-nav-submenu a:active{ color:#FBA017; border-left:3px solid #FBA017; padding-left:31px; }
+
+    .page-banner{ width:100%; padding:48px 20px; gap:12px; }
+    .page-banner-title{ font-size:32px; line-height:37px; letter-spacing:-0.8px; }
+
+    .page-content{ width:100%; padding:0 20px 48px; }
+    .content-inner{ width:100%; gap:56px; }
+    .prep-section h2{ font-size:26px; line-height:32px; margin-bottom:16px; }
+    .prep-section-intro{ font-size:15px; line-height:24px; margin-bottom:28px; }
+
+    .intro-banner{ padding:28px 24px; gap:20px; }
+    .intro-banner p{ font-size:16px; line-height:26px; }
+
+    .approach-stats{ gap:28px; }
+    .approach-stat-num{ font-size:24px; }
+
+    .feature-grid, .feature-grid-4{ grid-template-columns:1fr; gap:16px; }
+
+    .exam-row{ padding:16px 20px; }
+    .exam-subject{ font-size:15px; }
+    .exam-duration{ font-size:14px; }
+
+    .closing-cta{ padding:32px; }
+    .closing-cta h2{ font-size:24px; line-height:32px; }
+
+    .footer-main{ width:100%; padding-top:120px; gap:50px; }
+    .footer-tagline-wrap{ width:100%; padding:0 16px 30px; border-bottom:1px solid rgba(255,255,255,0.1); }
+    .footer-tagline{ flex-wrap:wrap; justify-content:center; text-align:center; width:100%; max-width:100%; font-size:32px; font-weight:600; line-height:35px; letter-spacing:-0.8px; color:#FFFFFF; }
+    .footer-columns{ width:100%; flex-direction:column; align-items:center; padding:0 16px 40px; gap:48px; }
+    .footer-col-brand{ width:100%; gap:24px; }
+    .footer-follow-label{ color:rgba(255,255,255,0.45); }
+    .footer-social{ border-radius:9999px; }
+    .footer-links-group{ flex-direction:column; align-items:flex-start; width:100%; gap:48px; }
+    .footer-col-links{ width:100%; }
+    .footer-col-links li{ padding:6px 0; }
+    .footer-col-links a{ font-size:16px; line-height:24px; color:rgba(255,255,255,0.68); }
+    .footer-col-contact{ width:100%; }
+    .footer-contact-item span{ font-size:16px; line-height:24px; color:rgba(255,255,255,0.68); }
+    .footer-scrolltop{ position:static; align-self:flex-end; margin-left:auto; transform:none; width:40px; height:40px; border-radius:9.3px; }
+    .footer-bottom{ width:100%; flex-direction:column; align-items:center; gap:12px; text-align:center; }
+    .footer-bottom span, .footer-bottom a{ font-size:14px; line-height:20px; color:rgba(255,255,255,0.68); }
+    .footer-wave-img{ width:100%; height:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scale-wrap" id="scaleWrap">
+
+  <div class="page-topbar">
+    <nav class="navbar">
+      <a class="logo" href="index.html">
+        <img src="assets/logo-icon.png" alt="Swift Smart Learning" class="logo-icon">
+        <span class="logo-text-swift">Swift Smart</span>
+        <span class="logo-text-learning">Learning</span>
+      </a>
+      <div class="nav-right">
+        <div class="navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="subjects.html">Subjects</a>
+          <div class="nav-item-dropdown">
+            <a href="test-prep.html" class="active">Test Prep <svg class="nav-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+            <div class="nav-dropdown-panel">
+              <a href="test-prep-11plus.html">11+</a>
+              <a href="test-prep-13plus.html">13+</a>
+              <a href="test-prep-act.html">ACT</a>
+              <a href="test-prep-a-levels.html">A-Levels</a>
+              <a href="test-prep-naplan.html">NAPLAN</a>
+              <a href="test-prep-hsc-vce-qce.html">HSC/VCE/QCE</a>
+            </div>
+          </div>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <a href="index.html#" class="login-link">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          Login
+        </a>
+      </div>
+      <button type="button" class="mobile-hamburger" aria-label="Menu" aria-expanded="false" id="mobileHamburgerBtn">&#9776;</button>
+      <div class="mobile-nav-dropdown" id="mobileNavDropdown">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="subjects.html">Subjects</a>
+        <div class="mobile-nav-item-group">
+          <div class="mobile-nav-accordion-row active">
+            <a href="test-prep.html" class="mobile-nav-accordion-label">Test Prep</a>
+            <button type="button" class="mobile-nav-accordion-toggle" aria-expanded="false" aria-label="Show Test Prep options">
+              <svg class="mobile-nav-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="mobile-nav-submenu">
+            <a href="test-prep-11plus.html">11+</a>
+            <a href="test-prep-13plus.html">13+</a>
+            <a href="test-prep-act.html">ACT</a>
+            <a href="test-prep-a-levels.html">A-Levels</a>
+            <a href="test-prep-naplan.html">NAPLAN</a>
+            <a href="test-prep-hsc-vce-qce.html">HSC/VCE/QCE</a>
+          </div>
+        </div>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#" class="mobile-nav-login">Login</a>
+      </div>
+    </nav>
+  </div>
+
+  <section class="page-banner">
+    <p class="page-eyebrow">Test Preparation</p>
+    <h1 class="page-banner-title">11+ Exam Preparation</h1>
+    <p class="page-breadcrumb"><a href="index.html">Home</a> &raquo; Test Prep &raquo; 11+</p>
+    <p class="page-trustline">Expert 1-on-1 Tutoring for the 11+ Entrance Exam</p>
+  </section>
+
+  <main class="page-content">
+    <div class="content-inner">
+
+      <section class="prep-section" id="intro">
+        <div class="intro-banner">
+          <p>The 11+ is a UK entrance exam sat by children in the final term of Year 6, around age ten or eleven, and used by grammar schools and many selective and independent schools to help decide their intake. For a lot of families it plays a real part in shaping where a child's secondary education begins &mdash; which can feel like pressure for a ten-year-old. It doesn't need to be. With the right preparation, steady practice and a tutor who knows the exam inside out, most students can walk in feeling ready instead of anxious.</p>
+          <a href="#prep11-form" class="cta-btn js-scroll-to-book-form">
+            <span class="cta-btn-inner">
+              <span class="cta-btn-row dark">Book Free Trial</span>
+              <span class="cta-btn-row light">Book Free Trial</span>
+            </span>
+          </a>
+          <p class="fine-note">Fill out the form below for more details.</p>
+        </div>
+      </section>
+
+      <section class="prep-section" id="why-it-matters">
+        <h2>Why the 11+ Matters</h2>
+        <p class="prep-section-intro">The 11+ isn't just another end-of-term test &mdash; for many families it's the deciding factor in whether a child gets a place at a grammar school or a selective independent school. It's normally sat in Year 6, while children are still ten or eleven years old, and the competition behind it is real: roughly 100,000 students across the country sit the exam each year, chasing a comparatively small number of selective places. Reaching the required score is a major step, but on its own it doesn't always guarantee a place &mdash; interview performance, catchment area and how a school ranks its applicants can all still matter. What reliably makes the biggest difference is preparation done properly: consistent tutoring, regular practice, and realistic mock exams that build both the skills and the calm needed to perform well on the day.</p>
+        <div class="approach-stats">
+          <div class="approach-stat">
+            <span class="approach-stat-num">100K+</span>
+            <p>Students sit the 11+ each year</p>
+          </div>
+          <div class="approach-stat">
+            <span class="approach-stat-num">Yr 6</span>
+            <p>Typically taken around age 10&ndash;11</p>
+          </div>
+          <div class="approach-stat">
+            <span class="approach-stat-num">Limited</span>
+            <p>Selective school places on offer</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="prep-section" id="who-sets-it">
+        <h2>Who Sets the 11+ Test</h2>
+        <p class="prep-section-intro">Not every 11+ paper looks the same. The organisation behind the exam changes what a student actually needs to practise, so it's worth knowing which one a target school uses.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
+            </div>
+            <h3>GL Assessment</h3>
+            <p>One of the largest 11+ providers, with curriculum-based questions across verbal reasoning, non-verbal reasoning, mathematics and English. Because the format is fairly predictable, it responds especially well to focused, practice-led preparation.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5c0 1.6.7 2.6 1.6 3.6.6.7 1 1.3 1.1 2.4H14.3c.1-1.1.5-1.7 1.1-2.4.9-1 1.6-2 1.6-3.6a5 5 0 0 0-5-5Z"></path><path d="M10 19h4M9.5 21.5h5"></path></svg>
+            </div>
+            <h3>CEM</h3>
+            <p>Set by the Centre for Evaluation and Monitoring at the University of Cambridge, CEM papers lean on ability and reasoning rather than memorised content &mdash; mixing verbal reasoning, non-verbal reasoning, arithmetic reasoning and comprehension so the test rewards genuine problem-solving over rote drilling.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.2-4.4L15.8 5c.8-.8 2-.8 2.8 0l.4.4c.8.8.8 2 0 2.8L8.4 18.8 4 20Z"></path><path d="M13.5 6.5l3 3"></path></svg>
+            </div>
+            <h3>ISEB</h3>
+            <p>The Independent Schools Examination Board writes the papers most independent schools rely on, covering English, mathematics and science &mdash; sometimes with extra subjects depending on the school &mdash; and leaning on full written responses rather than mostly multiple-choice.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="prep-section" id="exam-structure">
+        <h2>Exam Structure</h2>
+        <p class="prep-section-intro">Timings vary slightly by school, but most 11+ papers follow a similar overall shape:</p>
+        <div class="exam-structure-card">
+          <div class="exam-row">
+            <span class="exam-subject">Verbal Reasoning</span>
+            <span class="exam-duration">~45 minutes</span>
+          </div>
+          <div class="exam-row">
+            <span class="exam-subject">Non-Verbal Reasoning</span>
+            <span class="exam-duration">~45 minutes</span>
+          </div>
+          <div class="exam-row">
+            <span class="exam-subject">Mathematics</span>
+            <span class="exam-duration">~45 minutes</span>
+          </div>
+          <div class="exam-row">
+            <span class="exam-subject">English (where included)</span>
+            <span class="exam-duration">45 minutes &ndash; 1 hour</span>
+          </div>
+          <div class="exam-row total">
+            <span class="exam-subject">Total Duration</span>
+            <span class="exam-duration">Roughly 2&ndash;2.5 hours, sometimes split across two days</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="prep-section" id="what-it-covers">
+        <h2>What the Test Covers</h2>
+        <div class="feature-grid feature-grid-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.5 9 4.5 12 6c3-1.5 6-1.5 8-.5v13c-2-1-5-1-8 .5-3-1.5-6-1.5-8-.5V5.5Z"></path><path d="M12 6v13"></path></svg>
+            </div>
+            <span class="card-meta">45 min&ndash;1hr &middot; 30&ndash;40 Qs</span>
+            <h3>English</h3>
+            <p>Reading comprehension, grammar, spelling and short writing tasks &mdash; testing how clearly a student can read, understand and put their own thoughts into words.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 1 1-4.1-7.3"></path><path d="M21 4l-8.5 8.5"></path><path d="M14 4h7v7"></path></svg>
+            </div>
+            <span class="card-meta">~45 min &middot; 40&ndash;50 Qs</span>
+            <h3>Verbal Reasoning</h3>
+            <p>Vocabulary, word relationships, analogies and logical word-sequence puzzles &mdash; mostly multiple-choice, rewarding a strong vocabulary and quick pattern-spotting.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><circle cx="17.5" cy="6.5" r="3.5"></circle><path d="M4 21l6-8 4 5 3-4 4 7H4Z"></path></svg>
+            </div>
+            <span class="card-meta">~45 min &middot; 40&ndash;50 Qs</span>
+            <h3>Non-Verbal Reasoning</h3>
+            <p>Shape, pattern and sequence recognition that tests visual and spatial reasoning rather than words &mdash; a skill that tends to improve quickly with focused practice.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7h8"></path><circle cx="9" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><circle cx="9" cy="16" r="1"></circle><circle cx="12" cy="16" r="1"></circle><circle cx="15" cy="16" r="1"></circle></svg>
+            </div>
+            <span class="card-meta">~45 min &middot; 30&ndash;40 Qs</span>
+            <h3>Mathematics</h3>
+            <p>Arithmetic, fractions, percentages and decimals, word problems, and basic geometry and algebra &mdash; mixing quick recall with multi-step problem solving.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="prep-section" id="how-we-help">
+        <h2>How Our Tutoring Helps</h2>
+        <p class="prep-section-intro">Preparing for the 11+ isn't about last-minute cramming &mdash; it's about steady, well-directed practice over time. Here's how a Swift Smart Learning tutor builds that in.</p>
+        <div class="feature-grid feature-grid-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6"></path></svg>
+            </div>
+            <h3>Structured 1-on-1 Lessons</h3>
+            <p>Weekly sessions with the same tutor build real consistency and confidence &mdash; not just short-term cramming before test day.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.8 7.1 18.2l.9-5.5-4-3.9L9.5 8 12 3Z"></path></svg>
+            </div>
+            <h3>Exam Board-Specific Practice</h3>
+            <p>Whether the target school sets GL, CEM or ISEB papers, mock exams and practice questions are matched to that exact format.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg>
+            </div>
+            <h3>Speed, Accuracy &amp; Familiarity</h3>
+            <p>Regular timed practice builds the pace and pattern recognition that turn knowledge into results under real exam conditions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F6582B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H8l-4 4V4Z"></path><path d="M8 9h8M8 12h5"></path></svg>
+            </div>
+            <h3>Feedback on Weak Areas</h3>
+            <p>Every lesson comes with feedback that points to exactly what to work on next, so practice time is never wasted.</p>
+          </div>
+        </div>
+        <p class="prep-section-intro" style="margin-top:40px; margin-bottom:0;">And it starts the same way every subject does at Swift Smart Learning &mdash; with a free trial lesson and a diagnostic assessment, so your child's tutor knows exactly where to begin before the first real lesson.</p>
+      </section>
+
+      <section class="prep-section" id="closing-cta">
+        <div class="closing-cta">
+          <h2>Let&rsquo;s Prepare Together</h2>
+          <p>Book a free trial lesson and let&rsquo;s talk through your child&rsquo;s target schools, exam board, and timeline &mdash; then build a plan around it.</p>
+
+          <div class="book-trial-inline" id="prep11-form" style="margin-top:24px;">
+            <form id="prep11FormForm" class="book-trial-form" action="https://formspree.io/f/mnpnqoro" method="POST" novalidate>
+              <div class="book-trial-field">
+                <label for="prep11FormName">Name</label>
+                <input type="text" id="prep11FormName" name="name" required>
+                <p class="book-trial-field-error" id="prep11FormNameError">Name is required.</p>
+              </div>
+              <div class="book-trial-field">
+                <label for="prep11FormEmail">Email</label>
+                <input type="email" id="prep11FormEmail" name="email" required>
+                <p class="book-trial-field-error" id="prep11FormEmailError">Email is required.</p>
+              </div>
+              <div class="book-trial-field">
+                <label for="prep11FormPhone">Phone</label>
+                <input type="tel" id="prep11FormPhone" name="phone" required>
+                <p class="book-trial-field-error" id="prep11FormPhoneError">Please enter a valid phone number.</p>
+              </div>
+              <div class="book-trial-field">
+                <label for="prep11FormClassLevel">Class / Year Level</label>
+                <select id="prep11FormClassLevel" name="class_level" required>
+                  <option value="" disabled selected>Select year level</option>
+                  <option value="Foundation - Yr 6">Foundation - Yr 6</option>
+                  <option value="Yr 7-10">Yr 7-10</option>
+                  <option value="Yr 11-12">Yr 11-12</option>
+                  <option value="Other">Other</option>
+                </select>
+                <p class="book-trial-field-error" id="prep11FormClassLevelError">Please select a year level.</p>
+              </div>
+              <div class="book-trial-field">
+                <label id="prep11FormSubjectLabel">Subject of Interest</label>
+                <div class="book-trial-checkbox-grid" id="prep11FormSubjectGrid" role="group" aria-labelledby="prep11FormSubjectLabel">
+                  <label class="book-trial-checkbox"><input type="checkbox" class="prep11-form-subject-checkbox" value="Mathematics"><span>Mathematics</span></label>
+                  <label class="book-trial-checkbox"><input type="checkbox" class="prep11-form-subject-checkbox" value="English"><span>English</span></label>
+                  <label class="book-trial-checkbox"><input type="checkbox" class="prep11-form-subject-checkbox" value="Science"><span>Science</span></label>
+                  <label class="book-trial-checkbox"><input type="checkbox" class="prep11-form-subject-checkbox" value="NAPLAN"><span>NAPLAN</span></label>
+                  <label class="book-trial-checkbox"><input type="checkbox" class="prep11-form-subject-checkbox" value="Selective Exams"><span>Selective Exams</span></label>
+                  <label class="book-trial-checkbox"><input type="checkbox" class="prep11-form-subject-checkbox" value="HSC/VCE/QCE"><span>HSC/VCE/QCE</span></label>
+                  <label class="book-trial-checkbox"><input type="checkbox" class="prep11-form-subject-checkbox" value="Other"><span>Other</span></label>
+                </div>
+                <input type="hidden" id="prep11FormSubjectHidden" name="subject">
+                <p class="book-trial-field-error" id="prep11FormSubjectError">Please select at least one subject.</p>
+              </div>
+              <button type="submit" class="book-trial-btn" id="prep11FormSubmit">
+                <span class="book-trial-btn-slider">
+                  <span class="book-trial-btn-line book-trial-btn-line-1">Book My Free Trial</span>
+                  <span class="book-trial-btn-line book-trial-btn-line-2">Book My Free Trial</span>
+                </span>
+              </button>
+              <p class="book-trial-form-error" id="prep11FormError">Something went wrong, please try again or email us directly at <a href="mailto:support@swiftsmartlearning.com">support@swiftsmartlearning.com</a>.</p>
+            </form>
+            <div class="book-trial-success" id="prep11FormSuccess">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#0BC28B"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p>Thank you! We&rsquo;ll be in touch within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-tagline-wrap">
+      <div class="footer-tagline">
+        <span>Learn</span><span class="dot"></span><span>Grow</span><span class="dot"></span><span>Succeed</span>
+      </div>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col-brand">
+        <div class="footer-logo">
+          <img src="assets/footer-logo-icon.png" alt="">
+          <div style="display:flex; flex-direction:column;">
+            <span class="footer-logo-text-1">Swift Smart</span>
+            <span class="footer-logo-text-2">Learning</span>
+          </div>
+        </div>
+        <p class="footer-desc">Personalized 1-on-1 online tutoring for students &mdash; matched with the right tutor after a free diagnostic trial lesson.</p>
+        <div>
+          <p class="footer-follow-label">Follow Us</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M13.5 9H15V6h-1.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.2l.3-3H13v-1.2c0-.4.3-.8.5-.8z"/></svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9h3.8v1.9h.05c.53-1 1.8-1.9 3.7-1.9 3.9 0 4.65 2.6 4.65 5.9V21h-4v-5.4c0-1.3-.02-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21h-4V9z"/></svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M18.9 3h3.2l-7 8 8.2 10h-6.4l-5-6.5L5 21H1.8l7.5-8.5L1.4 3h6.5l4.5 6z"/></svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M23 7.2c-.2-1.6-1.5-2.9-3.1-3-3-.2-11.8-.2-14.8 0C3.5 4.3 2.2 5.6 2 7.2 1.8 9 1.8 15 2 16.8c.2 1.6 1.5 2.9 3.1 3 3 .2 11.8.2 14.8 0 1.6-.1 2.9-1.4 3.1-3 .2-1.8.2-7.8 0-9.6zM9.5 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links-group">
+      <div class="footer-col-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="subjects.html">Subjects</a></li>
+          <li><a href="test-prep.html">Test Prep</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="#" class="js-scroll-to-book-form">Book a Free Trial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-links">
+        <h4>Popular Test Prep</h4>
+        <ul>
+          <li><a href="test-prep-11plus.html">11+</a></li>
+          <li><a href="test-prep-13plus.html">13+</a></li>
+          <li><a href="test-prep-act.html">ACT</a></li>
+          <li><a href="test-prep-a-levels.html">A-Levels</a></li>
+          <li><a href="test-prep-naplan.html">NAPLAN</a></li>
+          <li><a href="test-prep-hsc-vce-qce.html">HSC / VCE / QCE</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-contact">
+        <h4>Get In Touch</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.5 0 1 .4 1 1V20c0 .6-.5 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .5 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg></span>
+            <span>1300 785 395</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+            <span>hello@swiftsmartlearning.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 11h-5v-2h3V6h2v7z"/></svg></span>
+            <span>Mon&ndash;Sat, 8am&ndash;8pm AEST</span>
+          </div>
+          <div class="footer-contact-item" style="align-items:flex-start;">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></span>
+            <span>Online tutors across globally</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <button class="footer-scrolltop" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </button>
+    </div>
+    <div class="footer-bottom">
+      <span>Copyright &copy; 2026 Swift Smart Learning. All Rights Reserved.</span>
+      <span><a href="terms.html">Terms of Service</a> &middot; <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="refund-policy.html">Refund Policy</a></span>
+    </div>
+  </footer>
+  <img class="footer-wave-img" src="assets/footer-clouds.png" alt="">
+</div>
+
+<script>
+  function fitScale(){
+    var wrap = document.getElementById('scaleWrap');
+    var designWidth = 1920;
+    if (window.innerWidth <= 480) {
+      wrap.style.zoom = 1;
+      return;
+    }
+    var scale = (window.innerWidth / designWidth) * 0.998;
+    wrap.style.zoom = scale;
+  }
+  window.addEventListener('resize', fitScale);
+  window.addEventListener('load', fitScale);
+  fitScale();
+
+  function updateNavbarScrolled(){
+    var nav = document.querySelector('.navbar');
+    if(!nav) return;
+    if (window.scrollY > 40) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', updateNavbarScrolled);
+  window.addEventListener('load', updateNavbarScrolled);
+  updateNavbarScrolled();
+
+  /* Mobile hamburger dropdown */
+  var mobileHamburgerBtn = document.getElementById('mobileHamburgerBtn');
+  var mobileNavDropdown = document.getElementById('mobileNavDropdown');
+  function closeMobileNav(){
+    if(!mobileNavDropdown) return;
+    mobileNavDropdown.classList.remove('open');
+    mobileHamburgerBtn.setAttribute('aria-expanded', 'false');
+    mobileHamburgerBtn.innerHTML = '&#9776;';
+    document.querySelectorAll('.mobile-nav-item-group.open').forEach(function(g){
+      g.classList.remove('open');
+      var toggle = g.querySelector('.mobile-nav-accordion-toggle');
+      if(toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+    document.body.style.overflow = '';
+  }
+  function openMobileNav(){
+    if(!mobileNavDropdown) return;
+    mobileNavDropdown.classList.add('open');
+    mobileHamburgerBtn.setAttribute('aria-expanded', 'true');
+    mobileHamburgerBtn.innerHTML = '&#10005;';
+    document.body.style.overflow = 'hidden';
+  }
+  if(mobileHamburgerBtn && mobileNavDropdown){
+    mobileHamburgerBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(mobileNavDropdown.classList.contains('open')){ closeMobileNav(); }
+      else { openMobileNav(); }
+    });
+    mobileNavDropdown.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('click', function(e){
+      if(!mobileNavDropdown.classList.contains('open')) return;
+      if(mobileNavDropdown.contains(e.target) || mobileHamburgerBtn.contains(e.target)) return;
+      closeMobileNav();
+    });
+  }
+
+  /* Mobile "Test Prep" accordion (tap to expand/collapse sub-links) */
+  document.querySelectorAll('.mobile-nav-accordion-toggle').forEach(function(toggleBtn){
+    toggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var group = toggleBtn.closest('.mobile-nav-item-group');
+      if(!group) return;
+      var isOpen = group.classList.contains('open');
+      document.querySelectorAll('.mobile-nav-item-group.open').forEach(function(g){
+        g.classList.remove('open');
+        var t = g.querySelector('.mobile-nav-accordion-toggle');
+        if(t) t.setAttribute('aria-expanded', 'false');
+      });
+      if(!isOpen){
+        group.classList.add('open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  var scrollTopBtn = document.getElementById('scrollTopBtn');
+  if(scrollTopBtn){
+    scrollTopBtn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* "Book Free Trial" scrolls to this page's own inline free-trial form */
+  (function(){
+    var target = document.getElementById('prep11-form');
+    if(!target) return;
+    document.querySelectorAll('.js-scroll-to-book-form').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  })();
+
+  /* 11+ page inline "Book Your Free Trial Lesson" form */
+  (function(){
+    var form = document.getElementById('prep11FormForm');
+    var errorMsg = document.getElementById('prep11FormError');
+    var successMsg = document.getElementById('prep11FormSuccess');
+    var submitBtn = document.getElementById('prep11FormSubmit');
+    if(!form) return;
+
+    var nameInput = document.getElementById('prep11FormName');
+    var emailInput = document.getElementById('prep11FormEmail');
+    var phoneInput = document.getElementById('prep11FormPhone');
+    var classLevelInput = document.getElementById('prep11FormClassLevel');
+    var subjectCheckboxes = document.querySelectorAll('.prep11-form-subject-checkbox');
+    var subjectGrid = document.getElementById('prep11FormSubjectGrid');
+    var subjectHidden = document.getElementById('prep11FormSubjectHidden');
+    var fieldErrorEls = document.querySelectorAll('#prep11FormForm .book-trial-field-error');
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var phonePattern = /^[0-9+\-\s()]{7,20}$/;
+
+    function clearFieldErrors(){
+      fieldErrorEls.forEach(function(el){ el.classList.remove('show'); });
+      [nameInput, emailInput, phoneInput, classLevelInput].forEach(function(el){ el.classList.remove('invalid'); });
+      subjectGrid.classList.remove('invalid');
+    }
+
+    function showFieldError(inputEl, errorId){
+      inputEl.classList.add('invalid');
+      var errEl = document.getElementById(errorId);
+      if(errEl) errEl.classList.add('show');
+    }
+
+    function validatePrep11Form(){
+      clearFieldErrors();
+      var firstInvalid = null;
+
+      if(!nameInput.value.trim()){
+        showFieldError(nameInput, 'prep11FormNameError');
+        firstInvalid = firstInvalid || nameInput;
+      }
+
+      var emailValue = emailInput.value.trim();
+      if(!emailValue || !emailPattern.test(emailValue)){
+        showFieldError(emailInput, 'prep11FormEmailError');
+        firstInvalid = firstInvalid || emailInput;
+      }
+
+      var phoneValue = phoneInput.value.trim();
+      if(!phoneValue || !phonePattern.test(phoneValue)){
+        showFieldError(phoneInput, 'prep11FormPhoneError');
+        firstInvalid = firstInvalid || phoneInput;
+      }
+
+      if(!classLevelInput.value){
+        showFieldError(classLevelInput, 'prep11FormClassLevelError');
+        firstInvalid = firstInvalid || classLevelInput;
+      }
+
+      var checkedSubjects = Array.prototype.filter.call(subjectCheckboxes, function(cb){ return cb.checked; });
+      if(checkedSubjects.length === 0){
+        subjectGrid.classList.add('invalid');
+        var subjectErr = document.getElementById('prep11FormSubjectError');
+        if(subjectErr) subjectErr.classList.add('show');
+        firstInvalid = firstInvalid || subjectCheckboxes[0];
+      } else {
+        subjectHidden.value = checkedSubjects.map(function(cb){ return cb.value; }).join(', ');
+      }
+
+      if(firstInvalid){
+        firstInvalid.focus();
+        return false;
+      }
+      return true;
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.classList.remove('show');
+
+      if(!validatePrep11Form()){ return; }
+
+      submitBtn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.style.display = 'none';
+          successMsg.classList.add('show');
+        } else {
+          errorMsg.classList.add('show');
+          submitBtn.disabled = false;
+        }
+      }).catch(function(){
+        errorMsg.classList.add('show');
+        submitBtn.disabled = false;
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
