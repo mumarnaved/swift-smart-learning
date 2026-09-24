@@ -297,10 +297,9 @@
       display:flex; align-items:center; justify-content:center;
       width:16px; height:24px; padding:0; background:none; border:none;
       color:#02307C; font-size:20px; line-height:1; cursor:pointer;
-      position:fixed; top:27px; right:22px; z-index:1001;
-      transition:top 0.25s ease;
+      position:absolute; top:50%; right:16px; transform:translateY(-50%);
+      z-index:1001;
     }
-    .navbar.scrolled .mobile-hamburger{ top:17px; }
     .mobile-nav-dropdown{
       display:flex; flex-direction:column;
       position:absolute; top:100%; left:0; width:100%;
