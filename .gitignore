@@ -8,9 +8,14 @@ desktop.ini
 .vscode/
 .idea/
 
-# Node (in case any tooling is added later)
+# Node
 node_modules/
 npm-debug.log*
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
 
 # Local env/secrets
 .env
