@@ -76,9 +76,19 @@
   .toc-sidebar a{
     font-family:'Sora',sans-serif; font-weight:400; font-size:14px; line-height:22px;
     color:rgba(25,24,25,0.6); padding:6px 0; border-left:2px solid transparent; padding-left:12px;
-    transition:color 0.2s ease, border-color 0.2s ease;
+    border-radius:0 6px 6px 0;
+    transition:color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
   }
   .toc-sidebar a:hover, .toc-sidebar a:focus{ color:#FBA017; border-left-color:#FBA017; }
+  .toc-sidebar a.toc-active{
+    color:#FBA017;
+    border-left-color:#FBA017;
+    background:rgba(251,160,23,0.1);
+    font-weight:600;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .toc-sidebar a{ transition:none; }
+  }
 
   .content-inner{ flex:1; min-width:0; display:flex; flex-direction:column; }
   .legal-intro{ font-family:'Sora',sans-serif; font-weight:400; font-size:18px; line-height:32px; color:rgba(25,24,25,0.8); margin-bottom:60px; }
@@ -1012,6 +1022,64 @@
         submitBtn.disabled = false;
       });
     });
+  })();
+
+  /* TOC scroll-spy */
+  (function(){
+    var tocSidebar = document.querySelector('.toc-sidebar');
+    var tocLinks = tocSidebar ? Array.prototype.slice.call(tocSidebar.querySelectorAll('a[href^="#"]')) : [];
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.legal-section'));
+    if(!tocSidebar || !tocLinks.length || !sections.length || !('IntersectionObserver' in window)) return;
+
+    var idToLink = {};
+    tocLinks.forEach(function(link){
+      idToLink[link.getAttribute('href').slice(1)] = link;
+    });
+
+    function setActive(id){
+      var link = idToLink[id];
+      if(!link) return;
+      tocLinks.forEach(function(l){ l.classList.remove('toc-active'); });
+      link.classList.add('toc-active');
+    }
+
+    var TRIGGER_LINE = 120; /* px from viewport top, matches the -120px rootMargin below */
+
+    function recomputeActive(){
+      /* Always re-derive the active section from live geometry rather than
+         trusting accumulated observer booleans across callback batches -
+         this is the section whose heading has most recently crossed the
+         trigger line (the standard "last header passed" scroll-spy rule),
+         so it self-corrects on every firing and can't get stuck on stale
+         state. Naturally covers: first section active at page top (nothing
+         has crossed yet, falls back to sections[0]), and last section
+         (Contact Us) active once scrolled to the bottom (nothing after it
+         to take over). */
+      var bestId = null;
+      var bestTop = -Infinity;
+      sections.forEach(function(s){
+        var top = s.getBoundingClientRect().top;
+        if(top <= TRIGGER_LINE && top > bestTop){
+          bestTop = top;
+          bestId = s.id;
+        }
+      });
+      setActive(bestId || sections[0].id);
+    }
+
+    var observer = new IntersectionObserver(recomputeActive, {
+      rootMargin: '-' + TRIGGER_LINE + 'px 0px -60% 0px',
+      threshold: [0, 0.01, 0.99, 1]
+    });
+    sections.forEach(function(s){ observer.observe(s); });
+
+    tocLinks.forEach(function(link){
+      link.addEventListener('click', function(){
+        setActive(link.getAttribute('href').slice(1));
+      });
+    });
+
+    setActive(sections[0].id);
   })();
 
 </script>

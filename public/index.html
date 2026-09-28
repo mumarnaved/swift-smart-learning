@@ -28,22 +28,22 @@
   /* ============ SECTION / OUTER ============ */
   .hero-section{
     width:1920px;
-    height:1125px;
+    height:100vh;
     background:#F7F7F2;
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
     align-items:flex-start;
-    padding:10px;
+    padding:0;
     margin:0 auto;
   }
 
   /* ============ CONTAINER (image + gradients) ============ */
   .hero-container{
     position:relative;
-    width:1900px;
-    height:1105px;
-    border-radius:12px 12px 0 0;
+    width:100%;
+    height:100%;
+    border-radius:0;
     overflow:hidden;
     background:
       linear-gradient(113.66deg, rgba(37,37,37,0.6) 15.35%, rgba(255,255,255,0) 48.68%),
@@ -51,6 +51,12 @@
       url('assets/hero-bg-new.jpg');
     background-size:cover;
     background-position:50% 30%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:flex-start;
+    padding:0 0 76px 50px;
+    box-sizing:border-box;
   }
 
   /* ============ NAV ============ */
@@ -166,15 +172,16 @@
   }
   /* ============ HERO TEXT CONTENT ============ */
   .hero-content{
-    position:absolute;
-    left:50px;
-    top:604px;
+    position:relative;
     z-index:2;
     display:flex;
     flex-direction:column;
     align-items:flex-start;
     gap:26px;
     width:750px;
+    max-width:100%;
+    transform:scale(var(--hero-fit, 1));
+    transform-origin:left bottom;
   }
   .hero-text-block{
     display:flex;
@@ -299,13 +306,15 @@
   /* ============ SLIDER (counter + card) ============ */
   .slider{
     position:absolute;
-    left:1286px;
-    top:805px;
+    right:50px;
+    bottom:76px;
     display:flex;
     flex-direction:column;
     align-items:flex-start;
     gap:8px;
     width:551px;
+    transform:scale(var(--hero-fit, 1));
+    transform-origin:right bottom;
   }
   .slider-top{
     display:flex;
@@ -553,15 +562,26 @@
     flex-direction:row;
     align-items:center;
     width:max-content;
-    gap:48px;
     animation: badge-scroll 22s linear infinite;
+  }
+  .badges-set{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:max-content;
+    flex-shrink:0;
+    gap:48px;
+    margin-right:48px;
   }
   .badges-row:hover .badges-track{
     animation-play-state: paused;
   }
   @keyframes badge-scroll{
     from{ transform: translateX(0); }
-    to{ transform: translateX(-50%); }
+    to{ transform: translateX(-25%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .badges-track{ animation: none; }
   }
   .badge{
     display:flex;
@@ -1771,8 +1791,10 @@
   }
   .hero-container{
     width:100%;
-    height:700px;
+    height:100vh;
+    height:100dvh;
     border-radius:0;
+    padding:0 16px 40px 16px;
   }
   .hero-blur{ display:none; }
 
@@ -1870,11 +1892,9 @@
 
   /* ---- badge / headline / copy ---- */
   .hero-content{
-    left:16px;
-    top:auto;
-    bottom:40px;
-    width:calc(100% - 32px);
+    width:100%;
     gap:20px;
+    transform:none;
   }
   .hero-text-block{ width:100%; gap:14px; }
   .hero-heading-group{ width:100%; gap:10px; }
@@ -2014,6 +2034,7 @@
 
   .proof-video{
     width:353px;
+    max-width:100%;
     height:128.5px;
     border-radius:16px;
     margin-bottom:0;
@@ -2986,17 +3007,34 @@
 
     <div class="badges-row">
       <div class="badges-track">
-        <div class="badge"><span class="bold">WWCC</span><span class="divider">|</span><span class="plain">VERIFIED</span></div>
-        <div class="badge"><span class="plain">DIAGNOSTIC</span><span class="pill">FIRST</span></div>
-        <div class="badge"><span class="plain">SYLLABUS</span><span class="boxed">MATCHED</span></div>
-        <div class="badge"><span class="plain">PROGRESS</span><span class="divider">|</span><span class="bold">REPORTS</span></div>
-        <div class="badge"><span class="bold">NO LOCK-IN</span><span class="divider">|</span><span class="plain">CONTRACT</span></div>
-        <!-- duplicate set for seamless loop -->
-        <div class="badge"><span class="bold">WWCC</span><span class="divider">|</span><span class="plain">VERIFIED</span></div>
-        <div class="badge"><span class="plain">DIAGNOSTIC</span><span class="pill">FIRST</span></div>
-        <div class="badge"><span class="plain">SYLLABUS</span><span class="boxed">MATCHED</span></div>
-        <div class="badge"><span class="plain">PROGRESS</span><span class="divider">|</span><span class="bold">REPORTS</span></div>
-        <div class="badge"><span class="bold">NO LOCK-IN</span><span class="divider">|</span><span class="plain">CONTRACT</span></div>
+        <div class="badges-set">
+          <div class="badge"><span class="bold">WWCC</span><span class="divider">|</span><span class="plain">VERIFIED</span></div>
+          <div class="badge"><span class="plain">DIAGNOSTIC</span><span class="pill">FIRST</span></div>
+          <div class="badge"><span class="plain">SYLLABUS</span><span class="boxed">MATCHED</span></div>
+          <div class="badge"><span class="plain">PROGRESS</span><span class="divider">|</span><span class="bold">REPORTS</span></div>
+          <div class="badge"><span class="bold">NO LOCK-IN</span><span class="divider">|</span><span class="plain">CONTRACT</span></div>
+        </div>
+        <div class="badges-set" aria-hidden="true">
+          <div class="badge"><span class="bold">WWCC</span><span class="divider">|</span><span class="plain">VERIFIED</span></div>
+          <div class="badge"><span class="plain">DIAGNOSTIC</span><span class="pill">FIRST</span></div>
+          <div class="badge"><span class="plain">SYLLABUS</span><span class="boxed">MATCHED</span></div>
+          <div class="badge"><span class="plain">PROGRESS</span><span class="divider">|</span><span class="bold">REPORTS</span></div>
+          <div class="badge"><span class="bold">NO LOCK-IN</span><span class="divider">|</span><span class="plain">CONTRACT</span></div>
+        </div>
+        <div class="badges-set" aria-hidden="true">
+          <div class="badge"><span class="bold">WWCC</span><span class="divider">|</span><span class="plain">VERIFIED</span></div>
+          <div class="badge"><span class="plain">DIAGNOSTIC</span><span class="pill">FIRST</span></div>
+          <div class="badge"><span class="plain">SYLLABUS</span><span class="boxed">MATCHED</span></div>
+          <div class="badge"><span class="plain">PROGRESS</span><span class="divider">|</span><span class="bold">REPORTS</span></div>
+          <div class="badge"><span class="bold">NO LOCK-IN</span><span class="divider">|</span><span class="plain">CONTRACT</span></div>
+        </div>
+        <div class="badges-set" aria-hidden="true">
+          <div class="badge"><span class="bold">WWCC</span><span class="divider">|</span><span class="plain">VERIFIED</span></div>
+          <div class="badge"><span class="plain">DIAGNOSTIC</span><span class="pill">FIRST</span></div>
+          <div class="badge"><span class="plain">SYLLABUS</span><span class="boxed">MATCHED</span></div>
+          <div class="badge"><span class="plain">PROGRESS</span><span class="divider">|</span><span class="bold">REPORTS</span></div>
+          <div class="badge"><span class="bold">NO LOCK-IN</span><span class="divider">|</span><span class="plain">CONTRACT</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -3566,19 +3604,48 @@
 </div>
 
 <script>
+  var HERO_MIN_FIT = 0.6;
+  var HERO_TOP_CLEARANCE = 140; // design px reserved so content never sits under the navbar
+  var HERO_BOTTOM_PAD = 76;     // design px, matches .hero-container's own bottom padding
+
   function fitScale(){
     var wrap = document.getElementById('scaleWrap');
+    var heroSection = document.querySelector('.hero-section');
+    var heroContent = document.querySelector('.hero-content');
     var designWidth = 1920;
+
     if (window.innerWidth <= 480) {
       wrap.style.zoom = 1;
+      if (heroSection) heroSection.style.removeProperty('height');
+      document.documentElement.style.setProperty('--hero-fit', 1);
       return;
     }
-    var scale = (window.innerWidth / designWidth) * 0.998;
+
+    var scale = window.innerWidth / designWidth;
     wrap.style.zoom = scale;
+
+    var designHeight = window.innerHeight / scale;
+    if (heroSection) heroSection.style.height = designHeight + 'px';
+
+    if (heroContent) {
+      document.documentElement.style.setProperty('--hero-fit', 1);
+      var naturalDesignHeight = heroContent.getBoundingClientRect().height / scale;
+      var available = designHeight - HERO_TOP_CLEARANCE - HERO_BOTTOM_PAD;
+      var fit = 1;
+      if (naturalDesignHeight > available && naturalDesignHeight > 0) {
+        fit = Math.max(HERO_MIN_FIT, available / naturalDesignHeight);
+      }
+      document.documentElement.style.setProperty('--hero-fit', fit);
+      if (fit <= HERO_MIN_FIT && naturalDesignHeight * HERO_MIN_FIT > available) {
+        console.warn('[hero-fit] Hero content does not fully fit even at the minimum scale (' + HERO_MIN_FIT + ') for viewport ' + window.innerWidth + 'x' + window.innerHeight + ' - needed ' + Math.round(naturalDesignHeight) + 'px, available ' + Math.round(available) + 'px.');
+      }
+    }
   }
   window.addEventListener('resize', fitScale);
+  window.addEventListener('orientationchange', fitScale);
   window.addEventListener('load', fitScale);
   fitScale();
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitScale); }
 
   /* Sticky navbar: solid background + shadow once scrolled past the top */
   function updateNavbarScrolled(){
