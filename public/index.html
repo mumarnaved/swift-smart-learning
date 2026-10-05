@@ -2860,7 +2860,314 @@
     .book-trial-checkbox-grid{ grid-template-columns:1fr; }
   }
 
+
+  /* ============ FAQ SECTION ============ */
+  .faq-section{
+    width:1920px;
+    scroll-margin-top:110px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:100px 211px;
+    background:#FFFFFF;
+  }
+  .faq-container{
+    width:1498px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:60px;
+  }
+  .faq-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:16px;
+    max-width:700px;
+  }
+  .faq-eyebrow{
+    font-family:'Sora',sans-serif;
+    font-weight:500;
+    font-size:16px;
+    line-height:24px;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    color:#FBA017;
+  }
+  .faq-heading{
+    font-family:'Parkinsans',sans-serif;
+    font-weight:500;
+    font-size:50px;
+    line-height:69px;
+    letter-spacing:-0.8px;
+    color:#10233F;
+  }
+  .faq-sub{
+    font-family:'Sora',sans-serif;
+    font-weight:400;
+    font-size:18px;
+    line-height:28px;
+    color:rgba(25,24,25,0.7);
+  }
+  .faq-list{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    gap:24px;
+  }
+  .faq-col{
+    flex:1 1 0;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .faq-item{
+    background:#F7F7F2;
+    border:1px solid rgba(16,35,63,0.10);
+    border-radius:16px;
+    overflow:hidden;
+    transition:border-color .3s ease, background-color .3s ease, box-shadow .3s ease;
+  }
+  .faq-item:hover{ border-color:rgba(251,160,23,0.45); }
+  .faq-item.open{
+    background:#FFF9F0;
+    border-color:#FBA017;
+    box-shadow:0 6px 20px rgba(251,160,23,0.12);
+  }
+  .faq-q{ margin:0; font-size:inherit; font-weight:inherit; }
+  .faq-trigger{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding:26px 32px;
+    min-height:112px;
+    background:none;
+    border:0;
+    border-radius:16px;
+    cursor:pointer;
+    text-align:left;
+    font-family:'Parkinsans',sans-serif;
+    font-weight:500;
+    font-size:22px;
+    line-height:30px;
+    color:#10233F;
+  }
+  .faq-q-text{ flex:1; min-width:0; overflow-wrap:break-word; }
+  .faq-trigger:focus-visible{ outline:3px solid #02307C; outline-offset:-3px; }
+  .faq-chevron{
+    flex:none;
+    transition:transform .3s ease, color .3s ease;
+  }
+  .faq-item.open .faq-chevron{ transform:rotate(180deg); color:#FBA017; }
+  .faq-panel{
+    display:grid;
+    grid-template-rows:0fr;
+    visibility:hidden;
+    transition:grid-template-rows .35s ease, visibility 0s linear .35s;
+  }
+  .faq-item.open .faq-panel{
+    grid-template-rows:1fr;
+    visibility:visible;
+    transition:grid-template-rows .35s ease, visibility 0s linear 0s;
+  }
+  .faq-panel-inner{ overflow:hidden; min-height:0; }
+  .faq-answer{
+    padding:0 32px 28px;
+    font-family:'Sora',sans-serif;
+    font-weight:400;
+    font-size:18px;
+    line-height:30px;
+    color:rgba(25,24,25,0.78);
+    overflow-wrap:break-word;
+  }
+  .faq-answer a{
+    color:#02307C;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .faq-answer a:hover{ color:#0BC28B; }
+  .faq-answer a:focus-visible{ outline:2px solid #02307C; outline-offset:2px; border-radius:2px; }
+  @media (prefers-reduced-motion: reduce){
+    .faq-item, .faq-chevron, .faq-panel, .faq-item.open .faq-panel{ transition:none; }
+  }
+  @media (max-width:768px){
+    .faq-list{ flex-direction:column; align-items:stretch; gap:16px; }
+    .faq-col{ flex:none; width:100%; }
+    /* Mobile "Load More": same look as the testimonials Load More button.
+       .faq-js is set by the script, so without JS all 14 questions stay visible. */
+    .faq-js:not(.faq-expanded) .faq-extra{ display:none; }
+    .faq-js.faq-measuring .faq-extra{ display:block; }
+    .faq-js:not(.faq-expanded) .faq-load-more-wrap{ display:flex; justify-content:center; }
+    .faq-load-more{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      width:100%;
+      max-width:353px;
+      height:50px;
+      padding:0 32px;
+      background:#FBA017;
+      border:none;
+      border-radius:10px;
+      font-family:'Parkinsans',sans-serif;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:-0.35px;
+      color:#191818;
+      white-space:nowrap;
+      cursor:pointer;
+    }
+    .faq-load-more svg{ width:14px; height:14px; flex-shrink:0; }
+    .faq-load-more:focus-visible{ outline:3px solid #02307C; outline-offset:3px; }
+  }
+  .faq-load-more-wrap{ display:none; }
+  @keyframes faq-reveal{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:none; }
+  }
+  .faq-item.faq-reveal{ animation:faq-reveal .45s ease both; }
+  @media (prefers-reduced-motion: reduce){
+    .faq-item.faq-reveal{ animation:none; }
+  }
+  @media (max-width:480px){
+    .faq-section{ width:100%; padding:48px 20px; }
+    .faq-container{ width:100%; gap:32px; }
+    .faq-header{ max-width:100%; }
+    .faq-heading{ font-size:32px; line-height:37px; }
+    .faq-sub{ font-size:16px; line-height:24px; }
+    .faq-list{ gap:12px; }
+    .faq-col{ gap:12px; }
+    .faq-trigger{ padding:18px 16px; min-height:84px; gap:12px; font-size:17px; line-height:24px; }
+    .faq-answer{ padding:0 16px 20px; font-size:16px; line-height:26px; }
+  }
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is online tutoring and how do your lessons work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our lessons are live, 1-on-1 online sessions between your child and a tutor. Every family starts with a free diagnostic trial lesson, so we can see exactly where your child stands before building a plan around them. From there, the tutor builds a learning plan around your child's real strengths and gaps, matched to the curriculum they study at school. You receive after-lesson summaries and regular progress updates, so you always know what was covered and what's improving. Lessons are compatible on all devices, and you can book week to week with no lock-in contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does online tutoring work as well as in-person tutoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every child learns differently, so we can't make a blanket comparison. What we can tell you is how our online lessons are set up: they are live and 1-on-1, with the same tutor every week, one who knows your child's history, habits and goals. Parents are welcome to sit in on lessons whenever they like, especially for younger children. The free trial lesson lets you see exactly how a tutor teaches, and whether the fit feels right, before you commit to anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does online tutoring cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We have three plans. The Essential Plan (1 Class Per Week) is $23 / session, or $92 per month (4 sessions per month). The Growth Plan (2 Classes Per Week) is $20 / session, or $160 per month (8 sessions per month). The Excellence Plan (3 Classes Per Week) is $18 / session, or $216 per month (12 sessions per month). All prices are listed in USD, and tuition fees are billed monthly, with payment completed before scheduled classes begin. Your child's first lesson is free. For Multiple Subject Packages, Sibling Discounts or Customized Learning Programs, contact us. Full details are on our Pricing page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who are the tutors and how are they matched to my child?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every tutor holds a current Working With Children Check and is interviewed and vetted before they teach a single lesson. When you book, you tell us your child's year level and subject and we match a syllabus specialist tutor. Tutors are matched by state curriculum, not just subject. Your child keeps the same tutor every week, and if the fit isn't right, we re-match at no cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is a session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your child's free trial lesson is one hour. After that, how often you meet depends on your plan: 1, 2 or 3 classes per week. The length of regular lessons is agreed with your tutor based on the student's needs. Sessions can be rescheduled with at least 24 hours' notice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will tutoring help with my child's grades?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our tutoring is designed to support student learning. Lessons are built around your child's real strengths and gaps and matched to their curriculum, and regular progress updates show you what was covered and what's improving. We do not guarantee specific grades, examination scores, admissions outcomes, scholarships or academic results, because individual performance depends on many factors, including student effort, attendance and engagement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What equipment do we need for online lessons?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our lessons are live online sessions and are compatible on all devices. If you're unsure about your setup, please contact us with any questions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What test preparation do you offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our Test Prep page covers 11+, 13+, ACT, A-Levels, NAPLAN and HSC / VCE / QCE, and each test has its own page with more detail. On our Subjects page we also prepare students for Selective Exams, the OC Test, and GATE & Scholarships. Every test is taught one-on-one by a tutor who specialises in that exam's format. Preparation starts with a free trial lesson and diagnostic assessment, so the tutor knows exactly where to begin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which ages and year levels do you teach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We tutor students from Foundation to Year 12. Our programs are Primary Tutoring (Foundation \u2013 Yr 6), Junior Secondary (Yr 7 \u2013 10) and High School (Yr 11 \u2013 12), plus Test & Exam Prep for all ages. Every subject is matched to your child's actual syllabus and year level. Subjects include Mathematics, English and Science; see our Subjects page for everything we tutor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose the right tutor, and how does the free trial work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tell us your child's year level and subject and we match them with a syllabus specialist tutor. Your child then has a free, no-obligation trial lesson, which is one hour. The trial is a diagnostic, so the tutor can see where your child stands, and you keep a written plan whatever you decide. It also lets you see how the tutor teaches, and whether the fit feels right, before you commit to anything. If it's not right, we re-match at no cost. To book, fill in the form on our Contact page and we'll be in touch within 24 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the benefits of online tutoring with Swift Smart Learning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every lesson is 1-on-1, with a tutor matched to your child's syllabus. Your child gets the same tutor every week, a free diagnostic trial lesson, and a written, individualised learning plan. You receive progress reports after lessons, and parents are welcome to sit in. Scheduling is flexible and easy to change, and there are no lock-in contracts: book week to week, pause for holidays or exams, and stop whenever you like."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which curricula do you support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We match tutors to the specific curriculum your child's school follows. We support USA \u2014 Common Core Standards, UK \u2014 National Curriculum, Australia \u2014 Australian Curriculum, New Zealand \u2014 New Zealand Curriculum, Canada \u2014 Canadian Curriculum, IB \u2014 International Baccalaureate, Cambridge \u2014 Cambridge Curriculum and UAE \u2014 KHDA Curriculum. Lessons reinforce classroom learning instead of duplicating it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do time zones and availability work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We tutor online, wherever in the world your family is based. Our availability is: US Times 11 am - 8 pm EST, UK Times 4 pm - 12 am GMT, CA Times 11 am - 8 pm EST and AUS Times 4 pm - 9 pm AEST. Sessions are scheduled based on mutual availability between the student and tutor. Our plans include flexible scheduling, and sessions can be rescheduled with at least 24 hours' notice. Contact us with any questions about timings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my child struggles with online learning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every student starts with a free diagnostic trial lesson, so the tutor can see real strengths and real gaps and build a plan around them. Lessons are shaped around how a student actually learns best, adjusting pace and approach rather than following a fixed script, and the plan is adjusted every few weeks as your child improves. Parents can sit in on lessons, especially for younger children, and our tutors welcome questions about their methods. If the tutor isn't the right fit, we re-match at no cost, and you can pause or stop whenever you like. If you have concerns, contact us and tell us how your child is finding it."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -3491,6 +3798,163 @@
   </div>
 </section>
 
+<section class="faq-section" id="faq">
+  <div class="faq-container">
+    <div class="faq-header">
+      <p class="faq-eyebrow">FAQ</p>
+      <h2 class="faq-heading">Frequently Asked Questions</h2>
+      <p class="faq-sub">Quick answers about how our 1-on-1 online tutoring works.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-col">
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-panel-1"><span class="faq-q-text">What is online tutoring and how do your lessons work?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+            <div class="faq-panel-inner"><p class="faq-answer">Our lessons are live, 1-on-1 online sessions between your child and a tutor. Every family starts with a free diagnostic trial lesson, so we can see exactly where your child stands before building a plan around them. From there, the tutor builds a learning plan around your child's real strengths and gaps, matched to the curriculum they study at school. You receive after-lesson summaries and regular progress updates, so you always know what was covered and what's improving. Lessons are compatible on all devices, and you can book week to week with no lock-in contract.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-panel-2"><span class="faq-q-text">Does online tutoring work as well as in-person tutoring?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+            <div class="faq-panel-inner"><p class="faq-answer">Every child learns differently, so we can't make a blanket comparison. What we can tell you is how our online lessons are set up: they are live and 1-on-1, with the same tutor every week, one who knows your child's history, habits and goals. Parents are welcome to sit in on lessons whenever they like, especially for younger children. The <a href="contact.html">free trial lesson</a> lets you see exactly how a tutor teaches, and whether the fit feels right, before you commit to anything.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-panel-3"><span class="faq-q-text">How much does online tutoring cost?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+            <div class="faq-panel-inner"><p class="faq-answer">We have three plans. The Essential Plan (1 Class Per Week) is $23 / session, or $92 per month (4 sessions per month). The Growth Plan (2 Classes Per Week) is $20 / session, or $160 per month (8 sessions per month). The Excellence Plan (3 Classes Per Week) is $18 / session, or $216 per month (12 sessions per month). All prices are listed in USD, and tuition fees are billed monthly, with payment completed before scheduled classes begin. Your child's first lesson is free. For Multiple Subject Packages, Sibling Discounts or Customized Learning Programs, <a href="contact.html">contact us</a>. Full details are on our <a href="pricing.html">Pricing page</a>.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-panel-4"><span class="faq-q-text">Who are the tutors and how are they matched to my child?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">
+            <div class="faq-panel-inner"><p class="faq-answer">Every tutor holds a current Working With Children Check and is interviewed and vetted before they teach a single lesson. When you book, you tell us your child's year level and subject and we match a syllabus specialist tutor. Tutors are matched by state curriculum, not just subject. Your child keeps the same tutor every week, and if the fit isn't right, we re-match at no cost.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-panel-5"><span class="faq-q-text">How long is a session?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">
+            <div class="faq-panel-inner"><p class="faq-answer">Your child's free trial lesson is one hour. After that, how often you meet depends on your <a href="pricing.html">plan</a>: 1, 2 or 3 classes per week. The length of regular lessons is agreed with your tutor based on the student's needs. Sessions can be rescheduled with at least 24 hours' notice.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-6" aria-expanded="false" aria-controls="faq-panel-6"><span class="faq-q-text">Will tutoring help with my child's grades?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6">
+            <div class="faq-panel-inner"><p class="faq-answer">Our tutoring is designed to support student learning. Lessons are built around your child's real strengths and gaps and matched to their curriculum, and regular progress updates show you what was covered and what's improving. We do not guarantee specific grades, examination scores, admissions outcomes, scholarships or academic results, because individual performance depends on many factors, including student effort, attendance and engagement.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-7" aria-expanded="false" aria-controls="faq-panel-7"><span class="faq-q-text">What equipment do we need for online lessons?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-7" role="region" aria-labelledby="faq-trigger-7">
+            <div class="faq-panel-inner"><p class="faq-answer">Our lessons are live online sessions and are compatible on all devices. If you're unsure about your setup, please <a href="contact.html">contact us</a> with any questions.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-col">
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-8" aria-expanded="false" aria-controls="faq-panel-8"><span class="faq-q-text">What test preparation do you offer?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-8" role="region" aria-labelledby="faq-trigger-8">
+            <div class="faq-panel-inner"><p class="faq-answer">Our <a href="test-prep.html">Test Prep page</a> covers 11+, 13+, ACT, A-Levels, NAPLAN and HSC / VCE / QCE, and each test has its own page with more detail. On our <a href="subjects.html">Subjects page</a> we also prepare students for Selective Exams, the OC Test, and GATE &amp; Scholarships. Every test is taught one-on-one by a tutor who specialises in that exam's format. Preparation starts with a free trial lesson and diagnostic assessment, so the tutor knows exactly where to begin.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-9" aria-expanded="false" aria-controls="faq-panel-9"><span class="faq-q-text">Which ages and year levels do you teach?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-9" role="region" aria-labelledby="faq-trigger-9">
+            <div class="faq-panel-inner"><p class="faq-answer">We tutor students from Foundation to Year 12. Our programs are Primary Tutoring (Foundation &#8211; Yr 6), Junior Secondary (Yr 7 &#8211; 10) and High School (Yr 11 &#8211; 12), plus Test &amp; Exam Prep for all ages. Every subject is matched to your child's actual syllabus and year level. Subjects include Mathematics, English and Science; see our <a href="subjects.html">Subjects page</a> for everything we tutor.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-10" aria-expanded="false" aria-controls="faq-panel-10"><span class="faq-q-text">How do I choose the right tutor, and how does the free trial work?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-10" role="region" aria-labelledby="faq-trigger-10">
+            <div class="faq-panel-inner"><p class="faq-answer">Tell us your child's year level and subject and we match them with a syllabus specialist tutor. Your child then has a free, no-obligation trial lesson, which is one hour. The trial is a diagnostic, so the tutor can see where your child stands, and you keep a written plan whatever you decide. It also lets you see how the tutor teaches, and whether the fit feels right, before you commit to anything. If it's not right, we re-match at no cost. To book, fill in the form on our <a href="contact.html">Contact page</a> and we'll be in touch within 24 hours.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-11" aria-expanded="false" aria-controls="faq-panel-11"><span class="faq-q-text">What are the benefits of online tutoring with Swift Smart Learning?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-11" role="region" aria-labelledby="faq-trigger-11">
+            <div class="faq-panel-inner"><p class="faq-answer">Every lesson is 1-on-1, with a tutor matched to your child's syllabus. Your child gets the same tutor every week, a free diagnostic trial lesson, and a written, individualised learning plan. You receive progress reports after lessons, and parents are welcome to sit in. Scheduling is flexible and easy to change, and there are no lock-in contracts: book week to week, pause for holidays or exams, and stop whenever you like.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-12" aria-expanded="false" aria-controls="faq-panel-12"><span class="faq-q-text">Which curricula do you support?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-12" role="region" aria-labelledby="faq-trigger-12">
+            <div class="faq-panel-inner"><p class="faq-answer">We match tutors to the specific curriculum your child's school follows. We support USA &#8212; Common Core Standards, UK &#8212; National Curriculum, Australia &#8212; Australian Curriculum, New Zealand &#8212; New Zealand Curriculum, Canada &#8212; Canadian Curriculum, IB &#8212; International Baccalaureate, Cambridge &#8212; Cambridge Curriculum and UAE &#8212; KHDA Curriculum. Lessons reinforce classroom learning instead of duplicating it.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-13" aria-expanded="false" aria-controls="faq-panel-13"><span class="faq-q-text">How do time zones and availability work?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-13" role="region" aria-labelledby="faq-trigger-13">
+            <div class="faq-panel-inner"><p class="faq-answer">We tutor online, wherever in the world your family is based. Our availability is: US Times 11 am - 8 pm EST, UK Times 4 pm - 12 am GMT, CA Times 11 am - 8 pm EST and AUS Times 4 pm - 9 pm AEST. Sessions are scheduled based on mutual availability between the student and tutor. Our plans include flexible scheduling, and sessions can be rescheduled with at least 24 hours' notice. <a href="contact.html">Contact us</a> with any questions about timings.</p></div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-trigger-14" aria-expanded="false" aria-controls="faq-panel-14"><span class="faq-q-text">What if my child struggles with online learning?</span><svg class="faq-chevron" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="faq-panel" id="faq-panel-14" role="region" aria-labelledby="faq-trigger-14">
+            <div class="faq-panel-inner"><p class="faq-answer">Every student starts with a free diagnostic trial lesson, so the tutor can see real strengths and real gaps and build a plan around them. Lessons are shaped around how a student actually learns best, adjusting pace and approach rather than following a fixed script, and the plan is adjusted every few weeks as your child improves. Parents can sit in on lessons, especially for younger children, and our tutors welcome questions about their methods. If the tutor isn't the right fit, we re-match at no cost, and you can pause or stop whenever you like. If you have concerns, <a href="contact.html">contact us</a> and tell us how your child is finding it.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="faq-load-more-wrap">
+      <button type="button" class="testi-load-more faq-load-more" id="faqLoadMore" aria-label="Load more questions">Load More <svg viewBox="0 0 24 24" fill="none" stroke="#191818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var FAQ_MOBILE_INITIAL = 6; // questions shown on mobile (<=768px) before "Load More"
+  var faq = document.getElementById('faq');
+  var list = document.querySelector('#faq .faq-list');
+  if (!list) return;
+  var items = list.querySelectorAll('.faq-item');
+  var loadMoreBtn = document.getElementById('faqLoadMore');
+  for (var n = FAQ_MOBILE_INITIAL; n < items.length; n++) items[n].classList.add('faq-extra');
+  faq.classList.add('faq-js');
+  if (loadMoreBtn) loadMoreBtn.addEventListener('click', function(){
+    faq.classList.add('faq-expanded');
+    var extras = list.querySelectorAll('.faq-extra');
+    extras.forEach(function(el){
+      el.classList.add('faq-reveal');
+      el.addEventListener('animationend', function(){ el.classList.remove('faq-reveal'); }, { once: true });
+    });
+    if (extras.length) extras[0].querySelector('.faq-trigger').focus();
+  });
+  list.addEventListener('click', function(e){
+    var btn = e.target.closest('.faq-trigger');
+    if (!btn || !list.contains(btn)) return;
+    var item = btn.closest('.faq-item');
+    var wasOpen = item.classList.contains('open');
+    list.querySelectorAll('.faq-item.open').forEach(function(o){
+      o.classList.remove('open');
+      o.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // Give every question box the same height: the tallest one at the current width.
+  // offsetHeight/min-height are both in layout units, so the page's zoom doesn't skew them.
+  var triggers = list.querySelectorAll('.faq-trigger');
+  function equalize(){
+    var max = 0, i;
+    // Un-hide the "Load More" extras while measuring (no paint in between), so they get the same height.
+    faq.classList.add('faq-measuring');
+    for (i = 0; i < triggers.length; i++) triggers[i].style.minHeight = '0px';
+    for (i = 0; i < triggers.length; i++) max = Math.max(max, triggers[i].offsetHeight);
+    for (i = 0; i < triggers.length; i++) triggers[i].style.minHeight = max + 'px';
+    faq.classList.remove('faq-measuring');
+  }
+  var eqTimer;
+  function equalizeSoon(){ clearTimeout(eqTimer); eqTimer = setTimeout(equalize, 100); }
+  equalize();
+  window.addEventListener('load', equalize);
+  window.addEventListener('resize', equalizeSoon);
+  window.addEventListener('orientationchange', equalizeSoon);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(equalize); }
+})();
+</script>
 <section class="footer-cta">
   <img class="footer-cta-bg" src="assets/footer-cta.png" alt="Parent and child studying together">
   <div class="footer-cta-overlay"></div>
@@ -3585,7 +4049,7 @@
         </div>
         <div class="footer-contact-item" style="align-items:flex-start;">
           <span class="footer-contact-icon icon-align-top"><svg viewBox="0 0 24 24" fill="#292D32"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></span>
-          <span>Online tutors across globally</span>
+          <span>30 N Gould St, Sheridan, WY 82801, USA</span>
         </div>
       </div>
     </div>
